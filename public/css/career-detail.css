@@ -1,0 +1,377 @@
+/* Career Detail Page Styles */
+
+/* Content Header */
+.content-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 6rem 0 3rem;
+    text-align: center;
+}
+
+.content-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.content-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Section Cards */
+.section-card {
+    background: white;
+    margin: 2rem 0;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.section-card:hover {
+    transform: translateY(-2px);
+}
+
+.section-card h2 {
+    color: #2d3748;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-card h2 i {
+    color: #667eea;
+    font-size: 1.6rem;
+}
+
+.section-card h3 {
+    color: #4a5568;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem 0;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+
+/* Stats Container */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stat-box {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-3px);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Info Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.info-item {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+.info-item h4 {
+    color: #2d3748;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.info-item p {
+    color: #718096;
+    line-height: 1.6;
+}
+
+.info-item ul {
+    color: #718096;
+    padding-left: 1rem;
+}
+
+.info-item ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Branch Cards */
+.branch-card {
+    background: white;
+    border: 2px solid #e2e8f0;
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.branch-card:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+}
+
+.branch-card h4 {
+    color: #2d3748;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.branch-card h4 i {
+    color: #667eea;
+}
+
+.branch-card p {
+    color: #718096;
+    line-height: 1.5;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    margin: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #667eea;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 60px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    background: #667eea;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px #667eea;
+}
+
+.timeline-item h4 {
+    color: #2d3748;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item p {
+    color: #718096;
+    line-height: 1.6;
+}
+
+/* Pros and Cons */
+.pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.pros, .cons {
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.pros {
+    background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
+}
+
+.cons {
+    background: linear-gradient(135deg, #fed7d7, #feb2b2);
+}
+
+.pros h3, .cons h3 {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pros h3 {
+    color: #2f855a;
+}
+
+.cons h3 {
+    color: #c53030;
+}
+
+.pros ul, .cons ul {
+    padding-left: 1.5rem;
+}
+
+.pros ul li, .cons ul li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.pros ul li {
+    color: #2f855a;
+}
+
+.cons ul li {
+    color: #c53030;
+}
+
+/* Quote Box */
+.quote-box {
+    background: linear-gradient(135deg, #edf2f7, #e2e8f0);
+    border-left: 5px solid #667eea;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+    text-align: center;
+    font-style: italic;
+}
+
+.quote-box p {
+    font-size: 1.1rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.quote-box strong {
+    color: #667eea;
+    font-weight: 600;
+}
+
+/* Lists */
+ul {
+    padding-left: 1.5rem;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: #718096;
+}
+
+ul li strong {
+    color: #2d3748;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-header {
+        padding: 4rem 0 2rem;
+    }
+    
+    .content-title {
+        font-size: 2.5rem;
+    }
+    
+    .content-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .section-card {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .stats-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .pros-cons {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .timeline-item {
+        padding-left: 50px;
+    }
+    
+    .timeline::before {
+        left: 15px;
+    }
+    
+    .timeline-item::before {
+        left: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .content-title {
+        font-size: 2rem;
+    }
+    
+    .section-card {
+        padding: 1rem;
+    }
+    
+    .section-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+}

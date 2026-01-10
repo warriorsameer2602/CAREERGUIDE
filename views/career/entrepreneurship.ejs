@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business & Startups - Career Explorer</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .career-detail {
+            padding: 2rem 0;
+            background: #f8fafc;
+            min-height: 100vh;
+        }
+        
+        .detail-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .detail-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .detail-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            color: #1e293b;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .info-card {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #6366f1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .info-card h4 {
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .chart-container {
+            max-width: 500px;
+            margin: 2rem auto;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .list-styled {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .list-styled li {
+            background: #f1f5f9;
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 8px;
+            position: relative;
+            padding-left: 3rem;
+            transition: background 0.3s ease;
+        }
+        
+        .list-styled li:hover {
+            background: #e2e8f0;
+        }
+        
+        .list-styled li::before {
+            content: '✓';
+            position: absolute;
+            left: 1rem;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .pros, .cons {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .pros:hover, .cons:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pros {
+            border-left: 4px solid #10b981;
+        }
+        
+        .cons {
+            border-left: 4px solid #ef4444;
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            background: #6366f1;
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-button:hover {
+            background: #5855eb;
+            transform: translateY(-3px);
+        }
+        
+        .quote-card {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quote-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .quote-card:hover::before {
+            left: 100%;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(45deg, #ffd700, #ff6b6b);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+            font-weight: 600;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #6366f1;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            background: white;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            position: relative;
+            width: 45%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            margin-left: 55%;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 15px;
+            height: 15px;
+            background: #6366f1;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .timeline-item:nth-child(odd)::before {
+            right: -22px;
+        }
+        
+        .timeline-item:nth-child(even)::before {
+            left: -22px;
+        }
+        
+        @media (max-width: 768px) {
+            .detail-title {
+                font-size: 2rem;
+            }
+            
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+            
+            .back-button {
+                display: none;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: calc(100% - 40px);
+                margin-left: 40px !important;
+            }
+            
+            .timeline-item::before {
+                left: -28px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .chart-container {
+                margin: 1rem 0;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../../index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <div class="detail-header">
+        <div class="container">
+            <h1 class="detail-title">
+                <i class="fas fa-rocket"></i>
+                Business & Startups
+            </h1>
+            <p class="detail-subtitle">
+                Transform your innovative ideas into successful businesses and become the next generation entrepreneur
+            </p>
+        </div>
+    </div>
+
+    <div class="career-detail">
+        <div class="container">
+            <!-- Introduction -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    Introduction
+                </h2>
+                <p>Business and entrepreneurship represent the dynamic world of creating, building, and scaling innovative solutions. In today's rapidly evolving economy, entrepreneurs are the driving force behind technological advancement, job creation, and economic growth. This field offers unlimited potential for those with vision, determination, and the willingness to take calculated risks.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">70%</span>
+                        <span>Of startups in India are tech-based</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">50K+</span>
+                        <span>Startups registered in India</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">₹100K+</span>
+                        <span>Average startup funding</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">3.5M+</span>
+                        <span>Jobs created by startups</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Branches/Specializations -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    Branches & Specializations
+                </h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-laptop-code"></i> Tech Startups</h4>
+                        <p>SaaS, Mobile Apps, AI/ML, Blockchain, IoT solutions, and software development companies</p>
+                        <ul class="list-styled">
+                            <li>Software as a Service (SaaS)</li>
+                            <li>Artificial Intelligence & Machine Learning</li>
+                            <li>Mobile Application Development</li>
+                            <li>Blockchain Technology</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-shopping-cart"></i> E-commerce</h4>
+                        <p>Online retail, marketplaces, dropshipping, social commerce platforms</p>
+                        <ul class="list-styled">
+                            <li>Online Marketplaces</li>
+                            <li>D2C Brands</li>
+                            <li>Social Commerce</li>
+                            <li>B2B E-commerce</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-heartbeat"></i> HealthTech</h4>
+                        <p>Telemedicine, health apps, medical devices, wellness platforms</p>
+                        <ul class="list-styled">
+                            <li>Telemedicine Platforms</li>
+                            <li>Health Monitoring Apps</li>
+                            <li>Medical Device Innovation</li>
+                            <li>Mental Health Solutions</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-graduation-cap"></i> EdTech</h4>
+                        <p>Online learning, skill development, educational tools and platforms</p>
+                        <ul class="list-styled">
+                            <li>Online Learning Platforms</li>
+                            <li>Skill Development Apps</li>
+                            <li>Educational Games</li>
+                            <li>Virtual Classrooms</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-leaf"></i> Green Tech</h4>
+                        <p>Clean energy, sustainable solutions, environmental technology</p>
+                        <ul class="list-styled">
+                            <li>Renewable Energy</li>
+                            <li>Waste Management</li>
+                            <li>Electric Vehicles</li>
+                            <li>Carbon Footprint Solutions</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-utensils"></i> FoodTech</h4>
+                        <p>Food delivery, agriculture tech, food processing, cloud kitchens</p>
+                        <ul class="list-styled">
+                            <li>Food Delivery Platforms</li>
+                            <li>Cloud Kitchens</li>
+                            <li>AgriTech Solutions</li>
+                            <li>Food Safety Technology</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="sectorsChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Eligibility & Requirements -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    Eligibility & Entrance Requirements
+                </h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-user-graduate"></i> Educational Background</h4>
+                        <ul class="list-styled">
+                            <li>Any bachelor's degree (preferred but not mandatory)</li>
+                            <li>MBA for advanced business knowledge</li>
+                            <li>Technical degree for tech startups</li>
+                            <li>Relevant certifications in your domain</li>
+                            <li>Online courses in entrepreneurship</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-brain"></i> Key Requirements</h4>
+                        <ul class="list-styled">
+                            <li>Innovative mindset and problem-solving skills</li>
+                            <li>Risk-taking ability and resilience</li>
+                            <li>Leadership and team management</li>
+                            <li>Basic understanding of finance and marketing</li>
+                            <li>Strong communication skills</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-certificate"></i> Entrance Exams</h4>
+                        <ul class="list-styled">
+                            <li>CAT/MAT for MBA programs</li>
+                            <li>GATE for technical entrepreneurship</li>
+                            <li>Industry certification exams</li>
+                            <li>No formal entrance for direct startup</li>
+                            <li>Incubator selection processes</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-tools"></i> Technical Skills</h4>
+                        <ul class="list-styled">
+                            <li>Basic coding knowledge (for tech startups)</li>
+                            <li>Digital marketing understanding</li>
+                            <li>Data analysis capabilities</li>
+                            <li>Project management skills</li>
+                            <li>Financial modeling knowledge</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Colleges/Incubators -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    Top Colleges & Incubators
+                </h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-trophy"></i> Tier 1 Incubators</h4>
+                        <ul class="list-styled">
+                            <li>SINE (IIT Bombay) - Society for Innovation & Entrepreneurship</li>
+                            <li>T-Hub (Hyderabad) - Technology Hub</li>
+                            <li>NSRCEL (IIM Bangalore) - NS Raghavan Centre</li>
+                            <li>CIIE (IIM Ahmedabad) - Centre for Innovation</li>
+                            <li>KTBI (Kochi) - Kerala Technology Business Incubator</li>
+                            <li>STEP (IIT Delhi) - Science & Technology Park</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-rocket"></i> Accelerators</h4>
+                        <ul class="list-styled">
+                            <li>Techstars India - Global startup accelerator</li>
+                            <li>Axilor Ventures - Early stage venture fund</li>
+                            <li>Indian Angel Network - Angel investor network</li>
+                            <li>500 Startups India - Venture capital firm</li>
+                            <li>Zone Startups India - Corporate accelerator</li>
+                            <li>Microsoft Accelerator - Tech startup accelerator</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-school"></i> Top Business Schools</h4>
+                        <ul class="list-styled">
+                            <li>IIM Ahmedabad - Entrepreneurship programs</li>
+                            <li>IIM Bangalore - Innovation courses</li>
+                            <li>ISB Hyderabad - Startup ecosystem</li>
+                            <li>XLRI Jamshedpur - Business innovation</li>
+                            <li>FMS Delhi - Entrepreneurship cell</li>
+                            <li>IIT Schools - Technology entrepreneurship</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-building"></i> Corporate Incubators</h4>
+                        <ul class="list-styled">
+                            <li>Reliance GenNext Hub</li>
+                            <li>Tata Social Enterprise Challenge</li>
+                            <li>Mahindra Rise Accelerator</li>
+                            <li>Shell E4 Program</li>
+                            <li>L&T Technology Innovation</li>
+                            <li>Maruti Suzuki Innovation Lab</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admission Process -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    Admission Process & Timeline
+                </h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4><i class="fas fa-lightbulb"></i> Idea Generation (1-2 months)</h4>
+                        <ul class="list-styled">
+                            <li>Market research and problem identification</li>
+                            <li>Solution brainstorming</li>
+                            <li>Competitive analysis</li>
+                            <li>Initial feasibility study</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h4><i class="fas fa-file-alt"></i> Business Plan (2-3 months)</h4>
+                        <ul class="list-styled">
+                            <li>Detailed business model creation</li>
+                            <li>Financial projections</li>
+                            <li>Marketing strategy development</li>
+                            <li>Risk assessment</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h4><i class="fas fa-users"></i> Team Building (1-2 months)</h4>
+                        <ul class="list-styled">
+                            <li>Co-founder identification</li>
+                            <li>Key team member recruitment</li>
+                            <li>Advisory board formation</li>
+                            <li>Equity distribution planning</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h4><i class="fas fa-cogs"></i> Prototype Development (3-6 months)</h4>
+                        <ul class="list-styled">
+                            <li>MVP (Minimum Viable Product) creation</li>
+                            <li>Testing and validation</li>
+                            <li>User feedback incorporation</li>
+                            <li>Product iteration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Duration & Structure -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    Startup Development Duration & Structure
+                </h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-seedling"></i> Pre-Seed Stage (0-6 months)</h4>
+                        <ul class="list-styled">
+                            <li>Idea validation and market research</li>
+                            <li>Team formation and initial planning</li>
+                            <li>Prototype development</li>
+                            <li>Initial customer feedback</li>
+                        </ul>
+                        <p><strong>Focus:</strong> Proof of concept and team building</p>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-rocket"></i> Seed Stage (6-18 months)</h4>
+                        <ul class="list-styled">
+                            <li>Product development and testing</li>
+                            <li>Initial customer acquisition</li>
+                            <li>Business model refinement</li>
+                            <li>Seed funding acquisition</li>
+                        </ul>
+                        <p><strong>Focus:</strong> Product-market fit and early growth</p>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-chart-line"></i> Growth Stage (1-3 years)</h4>
+                        <ul class="list-styled">
+                            <li>Market expansion and scaling</li>
+                            <li>Team expansion and operations</li>
+                            <li>Series A/B funding rounds</li>
+                            <li>Revenue optimization</li>
+                        </ul>
+                        <p><strong>Focus:</strong> Scaling and market capture</p>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-crown"></i> Maturity Stage (3+ years)</h4>
+                        <ul class="list-styled">
+                            <li>Market leadership establishment</li>
+                            <li>International expansion</li>
+                            <li>IPO or acquisition considerations</li>
+                            <li>Sustainable growth strategies</li>
+                        </ul>
+                        <p><strong>Focus:</strong> Market dominance and exit strategies</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fees & Scholarships -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    Investment Requirements & Funding
+                </h2>
+                
+                <div class="chart-container">
+                    <canvas id="fundingChart"></canvas>
+                </div>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-coins"></i> Initial Investment Ranges</h4>
+                        <ul class="list-styled">
+                            <li>Service-based startup: ₹50K - ₹5L</li>
+                            <li>Tech startup: ₹5L - ₹50L</li>
+                            <li>Manufacturing startup: ₹50L - ₹5Cr</li>
+                            <li>E-commerce platform: ₹10L - ₹1Cr</li>
+                            <li>SaaS product: ₹20L - ₹2Cr</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-hand-holding-usd"></i> Funding Sources</h4>
+                        <ul class="list-styled">
+                            <li>Self-funding (Bootstrapping) - 70% startups</li>
+                            <li>Friends & Family - 15% startups</li>
+                            <li>Angel Investors - 8% startups</li>
+                            <li>Venture Capital - 5% startups</li>
+                            <li>Government Schemes - 2% startups</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-gift"></i> Government Support</h4>
+                        <ul class="list-styled">
+                            <li>Startup India Seed Fund (₹20L funding)</li>
+                            <li>MUDRA Loans (up to ₹10L)</li>
+                            <li>Stand Up India (₹10L to ₹1Cr)</li>
+                            <li>SIDBI Fund of Funds (₹10,000Cr corpus)</li>
+                            <li>Tax exemptions for 3 years</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-trophy"></i> Competitions & Grants</h4>
+                        <ul class="list-styled">
+                            <li>National Startup Awards (₹5L prize)</li>
+                            <li>Smart India Hackathon (₹1L prize)</li>
+                            <li>Nasscom Emerge 50 Program</li>
+                            <li>TiE Global Awards</li>
+                            <li>University innovation challenges</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Life in Startup Ecosystem -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    Life in Startup Ecosystem
+                </h2>
+                
+                <div class="highlight-box">
+                    <h3><i class="fas fa-star"></i> The Startup Lifestyle</h3>
+                    <p>Fast-paced, dynamic environment with constant learning, networking opportunities, and the excitement of building something from scratch!</p>
+                </div>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-clock"></i> Daily Routine</h4>
+                        <ul class="list-styled">
+                            <li>Flexible working hours (often 10-12 hours)</li>
+                            <li>Team meetings and strategy sessions</li>
+                            <li>Customer calls and feedback collection</li>
+                            <li>Product development and testing</li>
+                            <li>Investor presentations and networking</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-heart"></i> Work Culture</h4>
+                        <ul class="list-styled">
+                            <li>Collaborative and innovative environment</li>
+                            <li>Flat organizational structure</li>
+                            <li>Rapid decision-making processes</li>
+                            <li>Learning-focused culture</li>
+                            <li>Risk-taking encouraged</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-map-marked-alt"></i> Startup Hubs in India</h4>
+                        <ul class="list-styled">
+                            <li>Bangalore - Silicon Valley of India</li>
+                            <li>Hyderabad - HITEC City ecosystem</li>
+                            <li>Mumbai - Financial capital advantage</li>
+                            <li>Delhi NCR - Policy and government proximity</li>
+                            <li>Pune - Growing tech ecosystem</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-handshake"></i> Networking Opportunities</h4>
+                        <ul class="list-styled">
+                            <li>Startup meetups and conferences</li>
+                            <li>Investor pitch events</li>
+                            <li>Industry workshops and seminars</li>
+                            <li>Co-working space communities</li>
+                            <li>Online entrepreneur forums</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Curriculum/Subjects -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    Essential Learning Curriculum
+                </h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-chart-bar"></i> Business Fundamentals</h4>
+                        <ul class="list-styled">
+                            <li>Business Model Canvas</li>
+                            <li>Financial Planning & Analysis</li>
+                            <li>Marketing & Sales Strategy</li>
+                            <li>Operations Management</li>
+                            <li>Legal & Compliance</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-lightbulb"></i> Innovation & Strategy</h4>
+                        <ul class="list-styled">
+                            <li>Design Thinking</li>
+                            <li>Lean Startup Methodology</li>
+                            <li>Customer Development</li>
+                            <li>Product Management</li>
+                            <li>Growth Hacking</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-laptop-code"></i> Technology Skills</h4>
+                        <ul class="list-styled">
+                            <li>Digital Marketing Tools</li>
+                            <li>Data Analytics & Metrics</li>
+                            <li>Basic Programming (optional)</li>
+                            <li>No-code/Low-code Platforms</li>
+                            <li>Cloud Computing Basics</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-user-tie"></i> Leadership & Management</h4>
+                        <ul class="list-styled">
+                            <li>Team Building & Leadership</li>
+                            <li>Communication Skills</li>
+                            <li>Negotiation & Persuasion</li>
+                            <li>Time & Project Management</li>
+                            <li>Emotional Intelligence</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Required -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    Essential Skills for Entrepreneurs
+                </h2>
+                
+                <div class="chart-container">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-user-cog"></i> Core Skills</h4>
+                        <ul class="list-styled">
+                            <li>Problem-solving and critical thinking</li>
+                            <li>Leadership and team management</li>
+                            <li>Communication and presentation</li>
+                            <li>Strategic planning and execution</li>
+                            <li>Risk assessment and management</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-chart-line"></i> Business Skills</h4>
+                        <ul class="list-styled">
+                            <li>Financial management and budgeting</li>
+                            <li>Marketing and customer acquisition</li>
+                            <li>Sales and negotiation</li>
+                            <li>Operations and process optimization</li>
+                            <li>Legal and regulatory compliance</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-heart"></i> Soft Skills</h4>
+                        <ul class="list-styled">
+                            <li>Resilience and perseverance</li>
+                            <li>Adaptability and flexibility</li>
+                            <li>Networking and relationship building</li>
+                            <li>Time management and prioritization</li>
+                            <li>Stress management and decision making</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-digital-tachograph"></i> Digital Skills</h4>
+                        <ul class="list-styled">
+                            <li>Digital marketing and social media</li>
+                            <li>Data analysis and interpretation</li>
+                            <li>Basic technical understanding</li>
+                            <li>Online tools and platforms</li>
+                            <li>E-commerce and digital payments</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Internships & Training -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    Internships & Training Programs
+                </h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-building"></i> Corporate Programs</h4>
+                        <ul class="list-styled">
+                            <li>Microsoft Accelerator Program</li>
+                            <li>Google for Startups Program</li>
+                            <li>Amazon AWS Activate</li>
+                            <li>Facebook Startup Garage</li>
+                            <li>Intel Capital Portfolio</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-university"></i> Government Initiatives</h4>
+                        <ul class="list-styled">
+                            <li>Startup India Learning Program</li>
+                            <li>Atal Innovation Mission</li>
+                            <li>Digital India Startup Hub</li>
+                            <li>Make in India Program</li>
+                            <li>Skill India Entrepreneurship</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-laptop"></i> Online Training</h4>
+                        <ul class="list-styled">
+                            <li>Coursera Entrepreneurship Courses</li>
+                            <li>edX Business Innovation</li>
+                            <li>Udemy Startup Masterclasses</li>
+                            <li>LinkedIn Learning Business</li>
+                            <li>Khan Academy Entrepreneurship</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-users"></i> Mentorship Programs</h4>
+                        <ul class="list-styled">
+                            <li>TiE Mentorship Program</li>
+                            <li>NASSCOM Startup Mentoring</li>
+                            <li>Indian Angel Network Mentors</li>
+                            <li>Startup Grind Mentorship</li>
+                            <li>Industry Expert Advisory</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placements & Packages -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    Success Stories & Valuations
+                </h2>
+                
+                <div class="chart-container">
+                    <canvas id="successChart"></canvas>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">$100B+</span>
+                        <span>Flipkart Valuation Peak</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">$16B+</span>
+                        <span>Paytm IPO Valuation</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">$22B+</span>
+                        <span>BYJU'S Peak Valuation</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">108</span>
+                        <span>Indian Unicorns (2024)</span>
+                    </div>
+                </div>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-rocket"></i> Successful Exits</h4>
+                        <ul class="list-styled">
+                            <li>Flipkart - Acquired by Walmart ($16B)</li>
+                            <li>Paytm - Public listing ($2.5B IPO)</li>
+                            <li>Zomato - Public listing ($1.3B IPO)</li>
+                            <li>MindTree - Acquired by L&T ($1.7B)</li>
+                            <li>Freshworks - NASDAQ listing ($1B IPO)</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-chart-line"></i> Founder Earnings</h4>
+                        <ul class="list-styled">
+                            <li>Successful exit: ₹100Cr - ₹10,000Cr+</li>
+                            <li>Profitable startup: ₹10L - ₹10Cr annually</li>
+                            <li>Growing startup: ₹5L - ₹50L annually</li>
+                            <li>Early stage: ₹0 - ₹20L annually</li>
+                            <li>Equity value: Unlimited potential</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Career Options -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    Career Options After Startup Experience
+                </h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-rocket"></i> Successful Exit Paths</h4>
+                        <ul class="list-styled">
+                            <li>Serial Entrepreneur - Start new ventures</li>
+                            <li>Angel Investor - Invest in other startups</li>
+                            <li>Venture Capitalist - Join VC firms</li>
+                            <li>Startup Mentor/Advisor - Guide new entrepreneurs</li>
+                            <li>Corporate Board Member - Strategic advisory roles</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-building"></i> Corporate Opportunities</h4>
+                        <ul class="list-styled">
+                            <li>Chief Executive Officer (CEO)</li>
+                            <li>Chief Technology Officer (CTO)</li>
+                            <li>VP Strategy & Innovation</li>
+                            <li>Business Development Head</li>
+                            <li>Product Management Director</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-handshake"></i> Consulting & Advisory</h4>
+                        <ul class="list-styled">
+                            <li>Strategy Consultant - McKinsey, BCG, Bain</li>
+                            <li>Innovation Consultant - Independent practice</li>
+                            <li>Business Transformation Advisor</li>
+                            <li>Digital Strategy Consultant</li>
+                            <li>Startup Ecosystem Builder</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-graduation-cap"></i> Academia & Research</h4>
+                        <ul class="list-styled">
+                            <li>Entrepreneurship Professor</li>
+                            <li>Business School Faculty</li>
+                            <li>Innovation Research Director</li>
+                            <li>Executive Education Trainer</li>
+                            <li>Think Tank Policy Advisor</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Recruiters/Employers -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    Top Partners, Investors & Employers
+                </h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-coins"></i> Tier 1 VC Firms</h4>
+                        <ul class="list-styled">
+                            <li>Sequoia Capital India - Top growth investor</li>
+                            <li>Accel Partners - Early stage specialist</li>
+                            <li>Lightspeed India - Tech-focused VC</li>
+                            <li>Matrix Partners India - Seed to growth</li>
+                            <li>Kalaari Capital - Consumer & enterprise</li>
+                            <li>Blume Ventures - Early stage champion</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-star"></i> Angel Networks</h4>
+                        <ul class="list-styled">
+                            <li>Indian Angel Network - Largest angel group</li>
+                            <li>Mumbai Angels - Western India focused</li>
+                            <li>Chennai Angels - Southern India network</li>
+                            <li>Hyderabad Angels - Tech ecosystem</li>
+                            <li>Calcutta Angels - Eastern India</li>
+                            <li>Lead Angels - Women entrepreneur focused</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-building"></i> Corporate Employers</h4>
+                        <ul class="list-styled">
+                            <li>McKinsey & Company - Strategy consulting</li>
+                            <li>Boston Consulting Group - Innovation roles</li>
+                            <li>Deloitte - Digital transformation</li>
+                            <li>Google - Product & strategy roles</li>
+                            <li>Microsoft - Business development</li>
+                            <li>Amazon - New initiatives</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-globe"></i> International Opportunities</h4>
+                        <ul class="list-styled">
+                            <li>Y Combinator (Silicon Valley)</li>
+                            <li>Techstars (Global accelerator)</li>
+                            <li>500 Startups (International)</li>
+                            <li>Rocket Internet (Berlin)</li>
+                            <li>Antler (Singapore, London)</li>
+                            <li>Global VC firms expansion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Realities & Challenges -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    Realities & Challenges
+                </h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Harsh Realities</h4>
+                        <ul class="list-styled">
+                            <li>90% of startups fail within first 5 years</li>
+                            <li>Most entrepreneurs earn less initially than corporate jobs</li>
+                            <li>Work-life balance is often compromised</li>
+                            <li>Constant stress and uncertainty</li>
+                            <li>Funding is extremely competitive</li>
+                            <li>Market competition is intense</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-shield-alt"></i> Common Challenges</h4>
+                        <ul class="list-styled">
+                            <li>Cash flow management difficulties</li>
+                            <li>Team building and retention</li>
+                            <li>Customer acquisition costs</li>
+                            <li>Regulatory compliance issues</li>
+                            <li>Technology and infrastructure costs</li>
+                            <li>Market timing and product-market fit</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-chart-line"></i> Success Factors</h4>
+                        <ul class="list-styled">
+                            <li>Strong product-market fit</li>
+                            <li>Experienced and committed team</li>
+                            <li>Adequate funding runway</li>
+                            <li>Scalable business model</li>
+                            <li>Customer-centric approach</li>
+                            <li>Adaptability and pivoting ability</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-lightbulb"></i> Overcoming Challenges</h4>
+                        <ul class="list-styled">
+                            <li>Build a strong support network</li>
+                            <li>Focus on cash-positive business models</li>
+                            <li>Validate ideas before major investments</li>
+                            <li>Maintain personal financial backup</li>
+                            <li>Continuous learning and adaptation</li>
+                            <li>Seek mentorship and guidance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pros & Cons -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    Pros & Cons Analysis
+                </h2>
+                
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4 style="color: #10b981; margin-bottom: 1rem;"><i class="fas fa-thumbs-up"></i> Advantages</h4>
+                        <ul class="list-styled">
+                            <li>Unlimited earning and growth potential</li>
+                            <li>Complete creative freedom and innovation</li>
+                            <li>Build something meaningful and impactful</li>
+                            <li>Flexible work environment and schedule</li>
+                            <li>Rapid personal and professional growth</li>
+                            <li>Job creation and economic contribution</li>
+                            <li>Independence and being your own boss</li>
+                            <li>Opportunity to solve real-world problems</li>
+                            <li>Network with industry leaders and investors</li>
+                            <li>Potential for global expansion and impact</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4 style="color: #ef4444; margin-bottom: 1rem;"><i class="fas fa-thumbs-down"></i> Challenges</h4>
+                        <ul class="list-styled">
+                            <li>High risk of failure and financial loss</li>
+                            <li>Income instability and uncertainty</li>
+                            <li>Extremely stressful work environment</li>
+                            <li>Long working hours (60-80 hours/week)</li>
+                            <li>Limited work-life balance initially</li>
+                            <li>Constant pressure to perform and deliver</li>
+                            <li>Difficulty in raising funds</li>
+                            <li>Market competition and business risks</li>
+                            <li>Personal relationships may suffer</li>
+                            <li>No guaranteed success despite hard work</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Future Scope -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-crystal-ball"></i>
+                    </div>
+                    Future Scope & Emerging Trends
+                </h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-robot"></i> Emerging Technologies</h4>
+                        <ul class="list-styled">
+                            <li>Artificial Intelligence & Machine Learning</li>
+                            <li>Blockchain & Cryptocurrency solutions</li>
+                            <li>Internet of Things (IoT) applications</li>
+                            <li>Augmented & Virtual Reality platforms</li>
+                            <li>Quantum computing applications</li>
+                            <li>5G-enabled services and products</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-leaf"></i> Sustainable Business</h4>
+                        <ul class="list-styled">
+                            <li>Clean energy and renewable solutions</li>
+                            <li>Sustainable manufacturing processes</li>
+                            <li>Circular economy business models</li>
+                            <li>Carbon neutral and green technologies</li>
+                            <li>Waste management innovations</li>
+                            <li>Environmental monitoring systems</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-chart-line"></i> Market Projections</h4>
+                        <ul class="list-styled">
+                            <li>Indian startup ecosystem to reach $1 Trillion by 2025</li>
+                            <li>150+ unicorns expected by 2025</li>
+                            <li>50M+ direct and indirect jobs creation</li>
+                            <li>Tier 2 & 3 cities emerging as startup hubs</li>
+                            <li>Government support increasing annually</li>
+                            <li>International investors focusing on India</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-globe-asia"></i> Global Opportunities</h4>
+                        <ul class="list-styled">
+                            <li>Cross-border e-commerce platforms</li>
+                            <li>Remote work and collaboration tools</li>
+                            <li>International SaaS product development</li>
+                            <li>Global supply chain solutions</li>
+                            <li>Multi-market expansion strategies</li>
+                            <li>International partnership opportunities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alumni Advice -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    Advice from Successful Entrepreneurs
+                </h2>
+                
+                <div class="quote-card">
+                    <p><i class="fas fa-quote-left"></i> "The biggest risk is not taking any risk... In a world that's changing quickly, the only strategy that is guaranteed to fail is not taking risks." <br><strong>- Mark Zuckerberg, Facebook Founder</strong></p>
+                </div>
+                
+                <div class="quote-card">
+                    <p><i class="fas fa-quote-left"></i> "Build something 100 people love, not something 1 million people kind of like." <br><strong>- Brian Chesky, Airbnb Co-founder</strong></p>
+                </div>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-lightbulb"></i> Key Success Advice</h4>
+                        <ul class="list-styled">
+                            <li>Start with solving a real problem you've experienced</li>
+                            <li>Build a strong, complementary team early</li>
+                            <li>Focus intensely on customer feedback and iteration</li>
+                            <li>Be prepared for multiple failures and learn from each</li>
+                            <li>Network extensively but build genuine relationships</li>
+                            <li>Maintain financial discipline from day one</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-book"></i> Recommended Reading</h4>
+                        <ul class="list-styled">
+                            <li>"The Lean Startup" by Eric Ries</li>
+                            <li>"Zero to One" by Peter Thiel</li>
+                            <li>"The Hard Thing About Hard Things" by Ben Horowitz</li>
+                            <li>"Blitzscaling" by Reid Hoffman</li>
+                            <li>"The Mom Test" by Rob Fitzpatrick</li>
+                            <li>"Crossing the Chasm" by Geoffrey Moore</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-podcast"></i> Learning Resources</h4>
+                        <ul class="list-styled">
+                            <li>Masters of Scale (Reid Hoffman podcast)</li>
+                            <li>How I Built This (Guy Raz podcast)</li>
+                            <li>The Tim Ferriss Show (Entrepreneurship focus)</li>
+                            <li>Stanford Entrepreneurship Corner (YouTube)</li>
+                            <li>Y Combinator Startup School (Free online)</li>
+                            <li>TED Talks on Entrepreneurship</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-users"></i> Community Building</h4>
+                        <ul class="list-styled">
+                            <li>Join local entrepreneur meetups</li>
+                            <li>Participate in startup weekends</li>
+                            <li>Engage with online entrepreneur communities</li>
+                            <li>Attend industry conferences and events</li>
+                            <li>Find mentors in your industry</li>
+                            <li>Build relationships with potential customers early</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alternative Paths -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-map-signs"></i>
+                    </div>
+                    Alternative Career Paths
+                </h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4><i class="fas fa-building"></i> Corporate Innovation</h4>
+                        <ul class="list-styled">
+                            <li>Chief Innovation Officer</li>
+                            <li>Strategy Consultant (McKinsey, BCG, Bain)</li>
+                            <li>Business Development Manager</li>
+                            <li>Product Manager (Google, Facebook, Amazon)</li>
+                            <li>Innovation Manager (Large corporations)</li>
+                            <li>Digital Transformation Lead</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-chart-line"></i> Investment & Finance</h4>
+                        <ul class="list-styled">
+                            <li>Venture Capital Analyst/Partner</li>
+                            <li>Investment Banking (Tech sector)</li>
+                            <li>Private Equity Associate</li>
+                            <li>Angel Investor (with capital)</li>
+                            <li>Corporate Development Manager</li>
+                            <li>Financial Analyst (Growth companies)</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-graduation-cap"></i> Academia & Research</h4>
+                        <ul class="list-styled">
+                            <li>Entrepreneurship Professor</li>
+                            <li>Business School Faculty</li>
+                            <li>Innovation Research Director</li>
+                            <li>Executive Education Trainer</li>
+                            <li>Think Tank Policy Advisor</li>
+                            <li>Industry Research Analyst</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4><i class="fas fa-handshake"></i> Ecosystem Building</h4>
+                        <ul class="list-styled">
+                            <li>Startup Accelerator Manager</li>
+                            <li>Incubator Program Director</li>
+                            <li>Government Startup Policy Advisor</li>
+                            <li>Ecosystem Development Manager</li>
+                            <li>Corporate Venture Capital</li>
+                            <li>Industry Association Leadership</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <div class="section-icon">
+                        <i class="fas fa-flag-checkered"></i>
+                    </div>
+                    Conclusion & Motivation
+                </h2>
+                
+                <div class="quote-card">
+                    <h3><i class="fas fa-rocket"></i> Your Entrepreneurial Journey Awaits!</h3>
+                    <p>"Entrepreneurship is not about having a perfect plan, it's about having the courage to start and the resilience to adapt. Every successful entrepreneur started with just an idea and the determination to make it happen. The future belongs to those who believe in the power of their dreams."</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3><i class="fas fa-star"></i> Why Now is the Perfect Time</h3>
+                    <p>India's startup ecosystem has never been more supportive. With government initiatives, abundant funding, growing market demand, and a tech-savvy population, the conditions are ideal for the next generation of entrepreneurs to thrive!</p>
+                </div>
+                
+                <div style="background: #f8fafc; padding: 2rem; border-radius: 15px; text-align: center; margin: 2rem 0;">
+                    <h3 style="color: #1e293b; margin-bottom: 1rem;">Remember These Key Points:</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 2rem 0;">
+                        <div style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #6366f1;">
+                            <strong>Start Small, Think Big</strong><br>
+                            Begin with solving one problem really well
+                        </div>
+                        <div style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #10b981;">
+                            <strong>Focus on Customers</strong><br>
+                            Build something people actually want
+                        </div>
+                        <div style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #f59e0b;">
+                            <strong>Embrace Failure</strong><br>
+                            Each failure is a stepping stone to success
+                        </div>
+                        <div style="background: white; padding: 1rem; border-radius: 10px; border-left: 4px solid #ef4444;">
+                            <strong>Network & Learn</strong><br>
+                            Surround yourself with other entrepreneurs
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="font-size: 1.2rem; line-height: 1.8; text-align: center; margin: 2rem 0; color: #1e293b;">
+                    The entrepreneurial journey is challenging but incredibly rewarding. India's startup ecosystem offers unprecedented opportunities for young entrepreneurs. With the right mindset, skills, and determination, you can build the next big thing. Remember, every unicorn started as someone's dream. Your time is now – take the leap and transform your innovative ideas into reality!
+                </p>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="../../index.html" style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(45deg, #6366f1, #8b5cf6); color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">
+                        <i class="fas fa-home"></i>
+                        Back to Career Explorer
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sectors Chart
+        const sectorsCtx = document.getElementById('sectorsChart').getContext('2d');
+        new Chart(sectorsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Technology', 'E-commerce', 'FinTech', 'HealthTech', 'EdTech', 'Others'],
+                datasets: [{
+                    data: [35, 20, 15, 12, 10, 8],
+                    backgroundColor: [
+                        '#6366f1',
+                        '#8b5cf6',
+                        '#06b6d4',
+                        '#10b981',
+                        '#f59e0b',
+                        '#ef4444'
+                    ],
+                    borderWidth: 3,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Startup Sectors Distribution in India (%)',
+                        font: { size: 16, weight: 'bold' },
+                        color: '#1e293b'
+                    },
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    }
+                }
+            }
+        });
+
+        // Funding Chart
+        const fundingCtx = document.getElementById('fundingChart').getContext('2d');
+        new Chart(fundingCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Pre-Seed', 'Seed', 'Series A', 'Series B', 'Series C+'],
+                datasets: [{
+                    label: 'Average Funding (₹ Crores)',
+                    data: [0.3, 3, 15, 50, 150],
+                    backgroundColor: [
+                        '#6366f1',
+                        '#8b5cf6',
+                        '#06b6d4',
+                        '#10b981',
+                        '#f59e0b'
+                    ],
+                    borderColor: [
+                        '#5855eb',
+                        '#7c3aed',
+                        '#0891b2',
+                        '#059669',
+                        '#d97706'
+                    ],
+                    borderWidth: 2,
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Average Funding by Investment Stage',
+                        font: { size: 16, weight: 'bold' },
+                        color: '#1e293b'
+                    },
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Funding Amount (₹ Crores)',
+                            color: '#64748b'
+                        },
+                        grid: {
+                            color: '#e2e8f0'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Skills Chart
+        const skillsCtx = document.getElementById('skillsChart').getContext('2d');
+        new Chart(skillsCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Leadership', 'Communication', 'Strategic Thinking', 'Financial Management', 'Marketing', 'Technical Skills', 'Problem Solving', 'Networking'],
+                datasets: [{
+                    label: 'Importance Level (%)',
+                    data: [95, 90, 88, 85, 82, 75, 92, 87],
+                    backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                    borderColor: '#6366f1',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#6366f1',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Essential Skills for Successful Entrepreneurs',
+                        font: { size: 16, weight: 'bold' },
+                        color: '#1e293b'
+                    },
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: {
+                            color: '#e2e8f0'
+                        },
+                        pointLabels: {
+                            color: '#64748b',
+                            font: {
+                                size: 12
+                            }
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Success Chart
+        const successCtx = document.getElementById('successChart').getContext('2d');
+        new Chart(successCtx, {
+            type: 'line',
+            data: {
+                labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025*'],
+                datasets: [{
+                    label: 'Number of Unicorns',
+                    data: [18, 21, 28, 44, 68, 85, 108, 150],
+                    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                    borderColor: '#8b5cf6',
+                    borderWidth: 4,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#8b5cf6',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Growth of Indian Unicorn Startups (*Projected)',
+                        font: { size: 16, weight: 'bold' },
+                        color: '#1e293b'
+                    },
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Unicorns',
+                            color: '#64748b'
+                        },
+                        grid: {
+                            color: '#e2e8f0'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Year',
+                            color: '#64748b'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animations to content sections
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease-out';
+            observer.observe(section);
+        });
+
+        // Smooth scroll for back button
+        document.querySelector('.back-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = '../../index.html';
+        });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.info-card, .stat-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

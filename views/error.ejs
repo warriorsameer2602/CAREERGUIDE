@@ -1,0 +1,32 @@
+<%- include('partials/header', { 
+    title: title, 
+    currentPage: currentPage 
+}) %>
+
+<%- include('partials/navbar', { currentPage: currentPage }) %>
+
+<div style="min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; background: #f8fafc;">
+    <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 600px;">
+        <div style="font-size: 4rem; margin-bottom: 1rem;">
+            <%= error.status === 404 ? '🔍' : '⚠️' %>
+        </div>
+        <h1 style="color: #1e293b; margin-bottom: 1rem;">
+            <%= error.status === 404 ? 'Page Not Found' : 'Coming Soon' %>
+        </h1>
+        <p style="color: #64748b; margin-bottom: 2rem; line-height: 1.6;">
+            <%= error.message %>
+        </p>
+        <% if (error.stack && process.env.NODE_ENV === 'development') { %>
+            <details style="text-align: left; margin-bottom: 2rem;">
+                <summary style="cursor: pointer; color: #6366f1;">View Error Details</summary>
+                <pre style="background: #f1f5f9; padding: 1rem; border-radius: 8px; font-size: 0.8rem; overflow-x: auto;"><%= error.stack %></pre>
+            </details>
+        <% } %>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="/" style="background: #6366f1; color: white; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 500;">Go Home</a>
+            <button onclick="history.back()" style="background: transparent; border: 2px solid #6366f1; color: #6366f1; padding: 0.75rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: 500;">Go Back</button>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

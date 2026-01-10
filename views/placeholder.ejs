@@ -1,0 +1,20 @@
+<%- include('partials/header', { 
+    title: title, 
+    currentPage: currentPage 
+}) %>
+
+<%- include('partials/navbar', { currentPage: currentPage }) %>
+
+<div style="min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+    <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); max-width: 500px;">
+        <div style="font-size: 4rem; margin-bottom: 1rem;">🚧</div>
+        <h1 style="color: #1e293b; margin-bottom: 1rem;"><%= routeName.charAt(0).toUpperCase() + routeName.slice(1) %></h1>
+        <p style="color: #64748b; margin-bottom: 2rem; line-height: 1.6;"><%= message %></p>
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+            <a href="/" style="background: #6366f1; color: white; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 500;">Go Home</a>
+            <a href="/contact" style="background: transparent; border: 2px solid #6366f1; color: #6366f1; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 500;">Contact Us</a>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Include Original Style Navigation -->
+    <%- include('partials/navbar') %>
+
+    <main class="dashboard-main">
+        <!-- Flash Messages -->
+        <% if (typeof success_msg !== 'undefined' && success_msg.length > 0) { %>
+            <div class="alert alert-success">
+                <%= success_msg %>
+            </div>
+        <% } %>
+        
+        <div class="dashboard-container">
+            <!-- Welcome Section - Original Theme -->
+            <section class="welcome-section">
+                <div class="welcome-card">
+                    <h1>Welcome back, <%= user.profile.fullName.split(' ')[0] %>! 👋</h1>
+                    <p>Your career guidance dashboard is ready. Let's continue your journey!</p>
+                    <div class="quick-stats">
+                        <div class="stat">
+                            <span class="stat-value"><%= user.profile.currentClass %></span>
+                            <span class="stat-label">Academic Level</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value"><%= user.profile.city %>, <%= user.profile.state %></span>
+                            <span class="stat-label">Location</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">
+                                <% 
+                                const age = Math.floor((new Date() - new Date(user.profile.dateOfBirth)) / (365.25 * 24 * 60 * 60 * 1000));
+                                %>
+                                <%= age %> years
+                            </span>
+                            <span class="stat-label">Age</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Information -->
+            <section class="profile-section">
+                <div class="section-header">
+                    <h2>Your Profile</h2>
+                </div>
+                
+                <div class="profile-grid">
+                    <div class="profile-item">
+                        <label>Username:</label>
+                        <span>@<%= user.username %></span>
+                    </div>
+                    <div class="profile-item">
+                        <label>Full Name:</label>
+                        <span><%= user.profile.fullName %></span>
+                    </div>
+                    <div class="profile-item">
+                        <label>Email:</label>
+                        <span><%= user.email %></span>
+                    </div>
+                    <div class="profile-item">
+                        <label>Phone:</label>
+                        <span>+91 <%= user.profile.phoneNumber %></span>
+                    </div>
+                    <div class="profile-item">
+                        <label>Date of Birth:</label>
+                        <span><%= new Date(user.profile.dateOfBirth).toLocaleDateString('en-IN') %></span>
+                    </div>
+                    <div class="profile-item">
+                        <label>Gender:</label>
+                        <span><%= user.profile.gender %></span>
+                    </div>
+                    <div class="profile-item">
+                        <label>Academic Level:</label>
+                        <span><%= user.profile.currentClass %></span>
+                    </div>
+                    <div class="profile-item">
+                        <label>Location:</label>
+                        <span><%= user.profile.city %>, <%= user.profile.state %></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="actions-section">
+                <h2>Quick Actions</h2>
+                <div class="actions-grid">
+                    <a href="/timeline" class="action-card">
+                        <div class="action-icon">📅</div>
+                        <h3>Timeline Tracker</h3>
+                        <p>View important deadlines and exam dates</p>
+                    </a>
+                    
+                    <a href="/aiAssistant" class="action-card">
+                        <div class="action-icon">🤖</div>
+                        <h3>AI Career Assistant</h3>
+                        <p>Get personalized career guidance</p>
+                    </a>
+                    
+                    <a href="/quiz" class="action-card">
+                        <div class="action-icon">📝</div>
+                        <h3>Aptitude Quiz</h3>
+                        <p>Discover your strengths and interests</p>
+                    </a>
+                    
+                    <a href="/colleges" class="action-card">
+                        <div class="action-icon">🏫</div>
+                        <h3>Find Colleges</h3>
+                        <p>Explore nearby government colleges</p>
+                    </a>
+                    
+                    <a href="/scholarship" class="action-card">
+                        <div class="action-icon">💰</div>
+                        <h3>Scholarships</h3>
+                        <p>Find scholarship opportunities</p>
+                    </a>
+                    
+                    <a href="/career" class="action-card">
+                        <div class="action-icon">🎯</div>
+                        <h3>Career Paths</h3>
+                        <p>Explore different career options</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Account Information -->
+            <section class="account-section">
+                <h2>Account Information</h2>
+                <div class="account-card">
+                    <div class="account-item">
+                        <label>Account Created:</label>
+                        <span><%= new Date(user.createdAt).toLocaleDateString('en-IN') %></span>
+                    </div>
+                    <div class="account-item">
+                        <label>Last Login:</label>
+                        <span><%= new Date(user.lastLogin).toLocaleString('en-IN') %></span>
+                    </div>
+                    <div class="account-item">
+                        <label>Account Type:</label>
+                        <span class="role-badge <%= user.role %>"><%= user.role.charAt(0).toUpperCase() + user.role.slice(1) %></span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <style>
+        /* Dashboard styles matching original theme */
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8fafc;
+            min-height: calc(100vh - 80px);
+        }
+
+        .welcome-section {
+            margin-bottom: 30px;
+        }
+
+        .welcome-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-card h1 {
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .welcome-card p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .quick-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .profile-section, 
+        .actions-section, 
+        .account-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-header {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .section-header h2,
+        .profile-section h2,
+        .actions-section h2,
+        .account-section h2 {
+            margin: 0 0 20px 0;
+            color: #2d3748;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .profile-item {
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+
+        .profile-item label {
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .profile-item span {
+            color: #2d3748;
+            font-size: 16px;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .action-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 25px;
+            text-decoration: none;
+            color: inherit;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .action-card:hover {
+            transform: translateY(-2px);
+            border-color: #667eea;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .action-card h3 {
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+
+        .action-card p {
+            color: #718096;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .account-card {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .account-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+
+        .account-item label {
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .role-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .role-badge.student {
+            background: #c6f6d5;
+            color: #2f855a;
+        }
+
+        .role-badge.admin {
+            background: #fed7d7;
+            color: #c53030;
+        }
+
+        .alert {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        .alert-success {
+            background: #c6f6d5;
+            color: #2f855a;
+            border: 1px solid #9ae6b4;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 15px;
+            }
+            
+            .welcome-card {
+                padding: 25px;
+            }
+            
+            .welcome-card h1 {
+                font-size: 24px;
+            }
+            
+            .quick-stats {
+                gap: 20px;
+            }
+            
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

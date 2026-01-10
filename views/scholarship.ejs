@@ -1,0 +1,201 @@
+<%- include('partials/header', { 
+    title: 'Scholarships - CareerGuide', 
+    cssFile: 'scholarship.css',
+    currentPage: 'scholarship'
+}) %>
+
+<%- include('partials/navbar', { currentPage: 'scholarship' }) %>
+
+<!-- Scholarship Hero -->
+<section class="scholarship-hero">
+    <div class="container">
+        <div class="scholarship-hero-content">
+            <h1 class="scholarship-title">
+                <span class="gradient-text">Scholarships</span> for Your Dreams
+            </h1>
+            <p class="scholarship-subtitle">
+                Find financial aid, grants, and scholarships to fund your education journey
+            </p>
+            <div class="scholarship-search">
+                <input type="text" placeholder="Search scholarships..." class="scholarship-search-input">
+                <button class="search-btn">🔍 Search</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Scholarship Categories -->
+<section class="scholarship-categories">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Browse by Category</h2>
+            <p class="section-subtitle">Find scholarships that match your profile</p>
+        </div>
+        
+        <div class="categories-tabs">
+            <button class="tab-btn active" data-category="all">All Scholarships</button>
+            <button class="tab-btn" data-category="merit">Merit Based</button>
+            <button class="tab-btn" data-category="need">Need Based</button>
+            <button class="tab-btn" data-category="category">Category Based</button>
+            <button class="tab-btn" data-category="minority">Minority</button>
+        </div>
+        
+        <div class="scholarships-grid" id="scholarshipsGrid">
+            <!-- Sample Scholarship Cards -->
+            <div class="scholarship-card" data-category="merit">
+                <div class="scholarship-header">
+                    <div class="scholarship-badge merit">Merit</div>
+                    <div class="scholarship-amount">₹50,000/year</div>
+                </div>
+                <h3>National Merit Scholarship</h3>
+                <p class="scholarship-provider">🏛️ Central Government</p>
+                <p class="scholarship-description">
+                    For students with exceptional academic performance in 12th standard.
+                </p>
+                <div class="scholarship-details">
+                    <div class="detail-item">
+                        <span class="label">Eligibility:</span>
+                        <span>85%+ in 12th</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Deadline:</span>
+                        <span class="deadline">30 days left</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Benefits:</span>
+                        <span>Tuition fees + Books</span>
+                    </div>
+                </div>
+                <div class="scholarship-actions">
+                    <button class="apply-btn">Apply Now</button>
+                    <button class="save-btn">💾 Save</button>
+                </div>
+            </div>
+            
+            <div class="scholarship-card" data-category="need">
+                <div class="scholarship-header">
+                    <div class="scholarship-badge need">Need Based</div>
+                    <div class="scholarship-amount">₹75,000/year</div>
+                </div>
+                <h3>Prime Minister's Scholarship</h3>
+                <p class="scholarship-provider">🏛️ Central Government</p>
+                <p class="scholarship-description">
+                    Financial assistance for economically disadvantaged students.
+                </p>
+                <div class="scholarship-details">
+                    <div class="detail-item">
+                        <span class="label">Eligibility:</span>
+                        <span>Income < 2 LPA</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Deadline:</span>
+                        <span class="deadline">45 days left</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Benefits:</span>
+                        <span>Full tuition + Hostel</span>
+                    </div>
+                </div>
+                <div class="scholarship-actions">
+                    <button class="apply-btn">Apply Now</button>
+                    <button class="save-btn">💾 Save</button>
+                </div>
+            </div>
+            
+            <div class="scholarship-card" data-category="category">
+                <div class="scholarship-header">
+                    <div class="scholarship-badge category">SC/ST/OBC</div>
+                    <div class="scholarship-amount">₹60,000/year</div>
+                </div>
+                <h3>Post Matric Scholarship</h3>
+                <p class="scholarship-provider">🏛️ State Government</p>
+                <p class="scholarship-description">
+                    Support for students from scheduled castes, tribes, and other backward classes.
+                </p>
+                <div class="scholarship-details">
+                    <div class="detail-item">
+                        <span class="label">Eligibility:</span>
+                        <span>SC/ST/OBC Certificate</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Deadline:</span>
+                        <span class="deadline">60 days left</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Benefits:</span>
+                        <span>Tuition + Maintenance</span>
+                    </div>
+                </div>
+                <div class="scholarship-actions">
+                    <button class="apply-btn">Apply Now</button>
+                    <button class="save-btn">💾 Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Application Tracker -->
+<section class="application-tracker">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">📊 Your Scholarship Applications</h2>
+            <p class="section-subtitle">Track your application status</p>
+        </div>
+        
+        <div class="tracker-container">
+            <div class="tracker-tabs">
+                <button class="tracker-tab active" data-status="all">All (0)</button>
+                <button class="tracker-tab" data-status="applied">Applied (0)</button>
+                <button class="tracker-tab" data-status="pending">Under Review (0)</button>
+                <button class="tracker-tab" data-status="approved">Approved (0)</button>
+            </div>
+            
+            <div class="applications-list" id="applicationsList">
+                <div class="no-applications">
+                    <div class="no-apps-icon">📝</div>
+                    <h4>No Applications Yet</h4>
+                    <p>Start applying for scholarships to see your progress here</p>
+                    <button class="browse-btn">Browse Scholarships</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tips Section -->
+<section class="scholarship-tips">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">💡 Scholarship Success Tips</h2>
+        </div>
+        
+        <div class="tips-grid">
+            <div class="tip-card">
+                <div class="tip-icon">🎯</div>
+                <h4>Start Early</h4>
+                <p>Begin your scholarship search at least 6 months before you need the funding.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">📋</div>
+                <h4>Read Requirements</h4>
+                <p>Carefully review eligibility criteria and required documents before applying.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">✍️</div>
+                <h4>Write Compelling Essays</h4>
+                <p>Tell your unique story and explain why you deserve the scholarship.</p>
+            </div>
+            
+            <div class="tip-card">
+                <div class="tip-icon">📄</div>
+                <h4>Organize Documents</h4>
+                <p>Keep all required documents ready: transcripts, certificates, income proof.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer', { jsFile: 'scholarship.js' }) %>

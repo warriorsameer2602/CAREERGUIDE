@@ -1,0 +1,675 @@
+<%- include('partials/header', { 
+    title: 'Career Paths - CareerGuide', 
+    cssFile: 'career.css',
+    currentPage: 'career'
+}) %>
+
+<%- include('partials/navbar', { currentPage: 'career' }) %>
+
+<!-- Career Hero Section -->
+<section class="career-hero">
+    <div class="container">
+        <div class="career-hero-content">
+            <h1 class="career-title">
+                Discover Your <span class="gradient-text">Perfect Career</span>
+            </h1>
+            <p class="career-subtitle">
+                Explore career paths, salary expectations, and growth opportunities across different fields
+            </p>
+            <div class="career-search">
+                <input type="text" placeholder="Search careers (e.g., Software Engineer, Doctor)" class="career-search-input">
+                <button class="search-btn">🔍 Search</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Career Cards Section -->
+<section class="features" id="careers">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Explore Career Categories</h2>
+            <p class="section-subtitle">Discover detailed information about various career paths, from traditional fields to emerging opportunities</p>
+        </div>
+        
+        <div class="career-cards-container">
+            
+            <!-- Card 1: Mathematics (PCM) -->
+            <div class="career-main-card" data-category="maths">
+                <div class="card-header">
+                    <div class="card-icon-large">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3 class="card-title">Mathematics (PCM)</h3>
+                    <p class="card-description">Engineering, Architecture, Data Science, and Analytical careers requiring strong mathematical foundation</p>
+                    <button class="expand-btn" aria-label="Expand Mathematics careers">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="career-subcards">
+                    <div class="career-subcard" onclick="window.location.href='/career/pcm/engineering'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Engineering (B.Tech/B.E.)</h4>
+                            <p>Computer Science, Mechanical, Civil, Electrical & more</p>
+                            <span class="salary-tag">₹6-25 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/pcm/architecture'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Architecture (B.Arch)</h4>
+                            <p>Building design, urban planning, construction</p>
+                            <span class="salary-tag">₹4-15 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/pcm/actuarial-science'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Actuarial Science</h4>
+                            <p>Risk assessment, insurance, financial modeling</p>
+                            <span class="salary-tag">₹8-20 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/pcm/data-science'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Data Science/AI/ML</h4>
+                            <p>Analytics, Machine Learning, Artificial Intelligence</p>
+                            <span class="salary-tag">₹7-30 LPA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Biology (PCB) -->
+            <div class="career-main-card" data-category="biology">
+                <div class="card-header">
+                    <div class="card-icon-large">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h3 class="card-title">Biology (PCB)</h3>
+                    <p class="card-description">Medical sciences, healthcare, biotechnology, and life sciences careers</p>
+                    <button class="expand-btn" aria-label="Expand Biology careers">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="career-subcards">
+                    <div class="career-subcard" onclick="window.location.href='/career/pcb/mbbs-bds'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>MBBS/BDS</h4>
+                            <p>Doctor, Surgeon, Medical Researcher</p>
+                            <span class="salary-tag">₹6-50 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/pcb/nursing-paramedical'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Nursing/Paramedical</h4>
+                            <p>Healthcare support, patient care</p>
+                            <span class="salary-tag">₹3-12 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/pcb/pharmacy'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Pharmacy/Pharmacology</h4>
+                            <p>Drug development, clinical research</p>
+                            <span class="salary-tag">₹4-15 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/pcb/biotechnology'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Biotechnology/Genetics</h4>
+                            <p>Genetics, bioinformatics, research</p>
+                            <span class="salary-tag">₹5-18 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/pcb/agriculture-veterinary'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Agriculture/Veterinary Science</h4>
+                            <p>Farming, animal care, food production</p>
+                            <span class="salary-tag">₹3-12 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/pcb/environmental-food'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Environmental & Food Technology</h4>
+                            <p>Food science, environmental solutions</p>
+                            <span class="salary-tag">₹4-14 LPA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Interdisciplinary/Emerging -->
+            <div class="career-main-card" data-category="interdisciplinary">
+                <div class="card-header">
+                    <div class="card-icon-large">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3 class="card-title">Interdisciplinary/Emerging</h3>
+                    <p class="card-description">Emerging fields combining multiple disciplines for innovative solutions</p>
+                    <button class="expand-btn" aria-label="Expand Interdisciplinary careers">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="career-subcards">
+                    <div class="career-subcard" onclick="window.location.href='/career/interdisciplinary/environmental-science'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Environmental Science</h4>
+                            <p>Sustainability, climate research, conservation</p>
+                            <span class="salary-tag">₹4-12 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/interdisciplinary/nanotechnology'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Nanotechnology/Material Science</h4>
+                            <p>Material science, nano-engineering</p>
+                            <span class="salary-tag">₹6-20 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/interdisciplinary/biomedical-engineering'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Biomedical Engineering</h4>
+                            <p>Medical devices, biotech research</p>
+                            <span class="salary-tag">₹5-18 LPA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Commerce/Business -->
+            <div class="career-main-card" data-category="commerce">
+                <div class="card-header">
+                    <div class="card-icon-large">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="card-title">Commerce/Business</h3>
+                    <p class="card-description">Finance, accounting, management, and business-related career opportunities</p>
+                    <button class="expand-btn" aria-label="Expand Commerce careers">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="career-subcards">
+                    <div class="career-subcard" onclick="window.location.href='/career/commerce/accounting-finance'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Accounting & Finance</h4>
+                            <p>CA, CS, CMA, Financial Analyst</p>
+                            <span class="salary-tag">₹4-25 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/commerce/business-management'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Business & Management</h4>
+                            <p>BBA/MBA, Marketing, HR, Operations</p>
+                            <span class="salary-tag">₹5-30 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/commerce/economics-analytics'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Economics & Analytics</h4>
+                            <p>Data analytics, business intelligence</p>
+                            <span class="salary-tag">₹6-22 LPA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Arts & Humanities -->
+            <div class="career-main-card" data-category="arts">
+                <div class="card-header">
+                    <div class="card-icon-large">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="card-title">Arts & Humanities</h3>
+                    <p class="card-description">Literature, social sciences, languages, and human-centered studies</p>
+                    <button class="expand-btn" aria-label="Expand Arts careers">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="career-subcards">
+                    <div class="career-subcard" onclick="window.location.href='/career/arts/social-sciences'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Social Sciences</h4>
+                            <p>Psychology, Sociology, Political Science</p>
+                            <span class="salary-tag">₹3-15 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/arts/languages-literature'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-pen"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Languages & Literature</h4>
+                            <p>English, Journalism, Translation</p>
+                            <span class="salary-tag">₹3-12 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/arts/history-philosophy'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>History & Philosophy</h4>
+                            <p>Archaeology, Cultural Studies, Ethics</p>
+                            <span class="salary-tag">₹3-10 LPA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Creative & Performing Arts -->
+            <div class="career-main-card" data-category="creative-arts">
+                <div class="card-header">
+                    <div class="card-icon-large">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="card-title">Creative & Performing Arts</h3>
+                    <p class="card-description">Visual arts, performing arts, design, and creative expression careers</p>
+                    <button class="expand-btn" aria-label="Expand Creative Arts careers">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="career-subcards">
+                    <div class="career-subcard" onclick="window.location.href='/career/creative-arts/visual-arts'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Visual Arts</h4>
+                            <p>Graphic Design, Animation, Photography</p>
+                            <span class="salary-tag">₹3-15 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/creative-arts/performing-arts'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-theater-masks"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Performing Arts</h4>
+                            <p>Dance, Music, Theater, Acting, Films</p>
+                            <span class="salary-tag">₹2-20 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/creative-arts/fashion-design'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Fashion & Design</h4>
+                            <p>Fashion Design, Textile, Interior Design</p>
+                            <span class="salary-tag">₹3-18 LPA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7: Vocational/Skill-Based -->
+            <div class="career-main-card" data-category="vocational">
+                <div class="card-header">
+                    <div class="card-icon-large">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="card-title">Vocational/Skill-Based</h3>
+                    <p class="card-description">Technical skills, IT, trades, and practical skill-based career paths</p>
+                    <button class="expand-btn" aria-label="Expand Vocational careers">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="career-subcards">
+                    <div class="career-subcard" onclick="window.location.href='/career/vocational/it-computers'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>IT & Computers</h4>
+                            <p>Web Dev, App Dev, Cybersecurity</p>
+                            <span class="salary-tag">₹4-20 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/vocational/trades-technical'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Trades & Technical Skills</h4>
+                            <p>Electrician, Plumbing, Automobile</p>
+                            <span class="salary-tag">₹2-8 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/vocational/hospitality-tourism'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-concierge-bell"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Hospitality & Tourism</h4>
+                            <p>Hotel Management, Event Management</p>
+                            <span class="salary-tag">₹3-12 LPA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8: Healthcare/Allied Health -->
+            <div class="career-main-card" data-category="healthcare">
+                <div class="card-header">
+                    <div class="card-icon-large">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3 class="card-title">Healthcare/Allied Health</h3>
+                    <p class="card-description">Healthcare support services, therapy, and medical assistance careers</p>
+                    <button class="expand-btn" aria-label="Expand Healthcare careers">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="career-subcards">
+                    <div class="career-subcard" onclick="window.location.href='/career/healthcare/nursing'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-user-nurse"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Nursing</h4>
+                            <p>Patient care, clinical nursing</p>
+                            <span class="salary-tag">₹3-10 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/healthcare/physiotherapy'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-walking"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Physiotherapy</h4>
+                            <p>Physical rehabilitation, sports therapy</p>
+                            <span class="salary-tag">₹3-12 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/healthcare/nutrition-dietetics'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Nutrition & Dietetics</h4>
+                            <p>Clinical nutrition, food science</p>
+                            <span class="salary-tag">₹2-8 LPA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 9: Sports & Physical Education -->
+            <div class="career-main-card" data-category="sports">
+                <div class="card-header">
+                    <div class="card-icon-large">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3 class="card-title">Sports & Physical Education</h3>
+                    <p class="card-description">Professional sports, fitness training, and sports science careers</p>
+                    <button class="expand-btn" aria-label="Expand Sports careers">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="career-subcards">
+                    <div class="career-subcard" onclick="window.location.href='/career/sports/professional-sports'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Professional Sports</h4>
+                            <p>Cricket, Football, Athletics, Coaching</p>
+                            <span class="salary-tag">₹2-50 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/sports/fitness-health'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Fitness & Health</h4>
+                            <p>Personal Training, Sports Science</p>
+                            <span class="salary-tag">₹2-10 LPA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 10: Law & Legal Studies -->
+            <div class="career-main-card" data-category="law">
+                <div class="card-header">
+                    <div class="card-icon-large">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="card-title">Law & Legal Studies</h3>
+                    <p class="card-description">Legal practice, forensic science, and law enforcement careers</p>
+                    <button class="expand-btn" aria-label="Expand Law careers">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="career-subcards">
+                    <div class="career-subcard" onclick="window.location.href='/career/law/llb-law'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>LLB</h4>
+                            <p>Corporate, Criminal, Cyber Law</p>
+                            <span class="salary-tag">₹3-25 LPA</span>
+                        </div>
+                    </div>
+                    <div class="career-subcard" onclick="window.location.href='/career/law/forensic-science'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Forensic Science/IP</h4>
+                            <p>Crime investigation, intellectual property</p>
+                            <span class="salary-tag">₹3-12 LPA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 11: Government/Civil Services -->
+            <div class="career-main-card" data-category="government">
+                <div class="card-header">
+                    <div class="card-icon-large">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 class="card-title">Government/Civil Services</h3>
+                    <p class="card-description">UPSC, state services, defense, and public administration careers</p>
+                    <button class="expand-btn" aria-label="Expand Government careers">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="career-subcards">
+                    <div class="career-subcard" onclick="window.location.href='/career/government/upsc-civil-services'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>UPSC/Civil Services</h4>
+                            <p>IAS, IPS, IFS, State PSC, Defense</p>
+                            <span class="salary-tag">₹7-30 LPA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 12: Entrepreneurship/Startups -->
+            <div class="career-main-card" data-category="entrepreneurship">
+                <div class="card-header">
+                    <div class="card-icon-large">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="card-title">Entrepreneurship/Startups</h3>
+                    <p class="card-description">Business creation, innovation, and startup ecosystem opportunities</p>
+                    <button class="expand-btn" aria-label="Expand Entrepreneurship careers">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="career-subcards">
+                    <div class="career-subcard" onclick="window.location.href='/career/entrepreneurship/business-startups'" role="button" tabindex="0">
+                        <div class="subcard-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="subcard-content">
+                            <h4>Business & Startups</h4>
+                            <p>Product Development, E-commerce, Tech</p>
+                            <span class="salary-tag">Variable</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Career Path Visualizer -->
+<section class="career-visualizer">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Career Path Visualizer</h2>
+            <p class="section-subtitle">See how your career can progress over time</p>
+        </div>
+        
+        <div class="visualizer-container">
+            <div class="career-timeline">
+                <div class="timeline-step active" data-year="0">
+                    <div class="step-dot"></div>
+                    <div class="step-content">
+                        <h4>12th Grade</h4>
+                        <p>Choose your stream</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step" data-year="4">
+                    <div class="step-dot"></div>
+                    <div class="step-content">
+                        <h4>Bachelor's Degree</h4>
+                        <p>Gain foundational knowledge</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step" data-year="5">
+                    <div class="step-dot"></div>
+                    <div class="step-content">
+                        <h4>Entry Level Job</h4>
+                        <p>Start your career journey</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step" data-year="8">
+                    <div class="step-dot"></div>
+                    <div class="step-content">
+                        <h4>Mid-Level Position</h4>
+                        <p>Grow your expertise</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step" data-year="12">
+                    <div class="step-dot"></div>
+                    <div class="step-content">
+                        <h4>Senior Role</h4>
+                        <p>Leadership and strategy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trending Careers -->
+<section class="trending-careers">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">🔥 Trending Careers 2025</h2>
+            <p class="section-subtitle">High-demand careers with great growth potential</p>
+        </div>
+        
+        <div class="trending-grid">
+            <div class="trending-card">
+                <div class="trending-rank">1</div>
+                <div class="trending-content">
+                    <h4>AI/ML Engineer</h4>
+                    <p>Design intelligent systems and algorithms</p>
+                    <div class="trending-meta">
+                        <span class="salary">₹8-25 LPA</span>
+                        <span class="growth">📈 35% growth</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="trending-card">
+                <div class="trending-rank">2</div>
+                <div class="trending-content">
+                    <h4>Data Scientist</h4>
+                    <p>Extract insights from complex data</p>
+                    <div class="trending-meta">
+                        <span class="salary">₹6-20 LPA</span>
+                        <span class="growth">📈 28% growth</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="trending-card">
+                <div class="trending-rank">3</div>
+                <div class="trending-content">
+                    <h4>Cybersecurity Analyst</h4>
+                    <p>Protect digital infrastructure</p>
+                    <div class="trending-meta">
+                        <span class="salary">₹5-18 LPA</span>
+                        <span class="growth">📈 31% growth</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer', { jsFile: 'career.js' }) %>

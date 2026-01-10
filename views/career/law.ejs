@@ -1,0 +1,2151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLB Law Career Guide | Career Explorer</title>
+    
+    <!-- Favicon to prevent 404 error -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Complete CSS embedded to avoid any 404 errors */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #6366f1;
+            text-decoration: none;
+        }
+
+        .nav-logo i {
+            font-size: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #6366f1;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #6366f1;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Law Hero Section */
+        .law-hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6741 100%);
+            padding: 120px 0 80px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        .law-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a"><stop offset="0" stop-color="%23ffffff" stop-opacity=".1"/><stop offset="1" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><g opacity=".8"><circle cx="200" cy="200" r="200" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="180" fill="url(%23a)"/></g></svg>') center/cover;
+        }
+        
+        .career-header {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .career-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #f39c12, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .career-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f39c12;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .content-section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-card {
+            background: white;
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #e74c3c;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(231, 76, 60, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .section-card:hover::before {
+            left: 100%;
+        }
+
+        .section-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .highlight-box h3 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .pros, .cons {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .pros h4 {
+            color: #27ae60;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .cons h4 {
+            color: #e74c3c;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .pros ul, .cons ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .pros li, .cons li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .pros li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .cons li::before {
+            content: "⚠";
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .specialization-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .specialization-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            border-left: 5px solid #3498db;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .specialization-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .specialization-card:hover::before {
+            left: 100%;
+        }
+        
+        .specialization-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2);
+            border-left: 5px solid #2980b9;
+        }
+
+        .specialization-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .specialization-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .college-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .college-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .college-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .college-card:hover::before {
+            left: 100%;
+        }
+
+        .college-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .college-card h4 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .college-card p {
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .college-card small {
+            opacity: 0.8;
+        }
+        
+        .chart-container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f0f0f0;
+        }
+
+        .chart-container h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .timeline-dot {
+            width: 24px;
+            height: 24px;
+            background: #e74c3c;
+            border-radius: 50%;
+            margin-right: 2rem;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.2);
+        }
+        
+        .timeline-content {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 1.8rem;
+            border-radius: 15px;
+            flex: 1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-content h4 {
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline-content p {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .salary-range {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.8rem 2rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .salary-range:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .advice-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 25px;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(240, 147, 251, 0.3);
+        }
+
+        .advice-card h3 {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .law-image {
+            width: 100%;
+            max-width: 700px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .law-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+        }
+        
+        .entrance-exam-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .exam-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            border-top: 5px solid #e74c3c;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .exam-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(231, 76, 60, 0.2);
+            border-top: 5px solid #c0392b;
+        }
+
+        .exam-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .exam-card p {
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .exam-card small {
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Course Structure Grid */
+        .course-structure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .course-year {
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-year::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .course-year:hover::before {
+            left: 100%;
+        }
+
+        .course-year:hover {
+            transform: translateY(-8px) scale(1.05);
+        }
+
+        .course-year strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-year small {
+            opacity: 0.9;
+            font-size: 0.85rem;
+        }
+
+        .year-1-2 {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+        }
+
+        .year-3-4 {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+        }
+
+        .year-5 {
+            background: linear-gradient(135deg, #27ae60, #229954);
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.3);
+        }
+
+        /* Fee Structure */
+        .fee-chart {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+
+        .pie-chart-container {
+            text-align: center;
+        }
+
+        .pie-chart {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #3498db 0% 25%, 
+                #e74c3c 25% 70%, 
+                #f39c12 70% 100%
+            );
+            margin: 0 auto 1.5rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .pie-chart-center {
+            position: absolute;
+            background: white;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #2c3e50;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .pie-legend {
+            text-align: left;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 0.8rem 0;
+            font-weight: 500;
+        }
+
+        .legend-color {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .government { background: #3498db; }
+        .private { background: #e74c3c; }
+        .nlu { background: #f39c12; }
+
+        /* Salary Progression */
+        .salary-progression {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        /* Sectors Grid */
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .sector-card {
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sector-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .sector-card:hover::before {
+            left: 100%;
+        }
+
+        .sector-card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .sector-card h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .corporate { 
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+        }
+        .government-sector { 
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+        }
+        .mnc { 
+            background: linear-gradient(135deg, #27ae60, #229954);
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.3);
+        }
+        .independent { 
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.3);
+        }
+
+        /* Career Options Grid */
+        .career-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .career-option {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border-left: 6px solid #3498db;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .career-option:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.2);
+            border-left: 6px solid #2980b9;
+        }
+
+        .career-option h4 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .career-option ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .career-option li {
+            padding: 0.5rem 0;
+            color: #555;
+            position: relative;
+            padding-left: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .career-option li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .career-option li:hover {
+            color: #2c3e50;
+        }
+
+        /* Emerging Fields */
+        .emerging-fields {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .emerging-field {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .emerging-field:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .emerging-field h4 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .emerging-field p {
+            line-height: 1.6;
+        }
+
+        /* Alumni Advice */
+        .advice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .advice-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .advice-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .advice-item h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .advice-item em {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .advice-item p {
+            line-height: 1.6;
+        }
+
+        /* Alternative Paths */
+        .alternative-paths {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .alternative-path {
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .alternative-path::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .alternative-path:hover::before {
+            left: 100%;
+        }
+
+        .alternative-path:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .alternative-path h4 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .alternative-path p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .alternative-path strong {
+            display: block;
+            margin-top: 1rem;
+            opacity: 0.9;
+        }
+
+        .academic-path {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .journalism-path {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            box-shadow: 0 8px 25px rgba(240, 147, 251, 0.3);
+        }
+
+        .activism-path {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+            box-shadow: 0 8px 25px rgba(168, 237, 234, 0.3);
+        }
+
+        /* Conclusion Section */
+        .conclusion-motivation {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 3rem;
+            border-radius: 25px;
+            margin-top: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .conclusion-motivation h3 {
+            color: #e74c3c;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .conclusion-motivation p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            color: #2c3e50;
+        }
+
+        .conclusion-motivation p:last-child {
+            font-style: italic;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1.5rem;
+            color: #ffd700;
+            font-size: 1.2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #6366f1;
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-section p {
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .career-title {
+                font-size: 2.5rem;
+            }
+            
+            .quick-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+            
+            .content-section {
+                padding: 3rem 1rem;
+            }
+            
+            .section-card {
+                padding: 2rem;
+            }
+
+            .fee-chart {
+                grid-template-columns: 1fr;
+            }
+
+            .course-structure-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .law-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 1rem;
+            }
+            
+            .career-title {
+                font-size: 2rem;
+            }
+            
+            .quick-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .section-card {
+                padding: 1.5rem;
+            }
+
+            .law-hero {
+                padding: 100px 0 60px;
+            }
+
+            .career-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .law-image {
+                height: 200px;
+            }
+
+            .advice-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .alternative-paths {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .slide-up {
+            animation: slideUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation for better UX */
+        .loading-placeholder {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 2s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Career Explorer</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#specializations" class="nav-link">Specializations</a></li>
+                <li><a href="#colleges" class="nav-link">Colleges</a></li>
+                <li><a href="#careers" class="nav-link">Careers</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="law-hero">
+        <div class="container">
+            <div class="career-header">
+                <h1 class="career-title">⚖️ LLB - Bachelor of Laws</h1>
+                <p class="career-subtitle">Your Complete Guide to Legal Education and Career Excellence in India</p>
+                
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">3-5</span>
+                        <p>Years Duration</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">₹50K-5L</span>
+                        <p>Annual Fees Range</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">₹3-50L</span>
+                        <p>Starting Salary Range</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">95%+</span>
+                        <p>Employment Rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Sections -->
+    <div class="content-section">
+        <div class="container">
+            
+            <!-- Introduction -->
+            <div class="section-card">
+                <h2 class="section-title">
+                    <div class="section-icon"><i class="fas fa-balance-scale"></i></div>
+                    Introduction to LLB
+                </h2>
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&h=350&q=80" alt="Law Books and Gavel" class="law-image">
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.7;">Bachelor of Laws (LLB) is an undergraduate degree in law that opens doors to the legal profession. It's designed to provide comprehensive knowledge of legal principles, constitutional law, civil and criminal procedures, and various specialized areas of law. LLB graduates can practice as advocates, work in corporate legal departments, join the judiciary, or pursue careers in legal consultancy.</p>
+                
+                <div class="highlight-box">
+                    <h3><i class="fas fa-lightbulb"></i> Why Choose Law?</h3>
+                    <p style="font-size: 1.05rem; line-height: 1.6;">Law is one of the most prestigious and intellectually stimulating career choices. It offers the opportunity to serve justice, protect rights, and make a significant impact on society. With diverse career paths and excellent earning potential, law provides both personal satisfaction and financial stability.</p>
+                </div>
+            </div>
+
+            <!-- Branches/Specializations -->
+            <div id="specializations" class="section-card">
+                <h2 class="section-title">
+                    <div class="section-icon"><i class="fas fa-sitemap"></i></div>
+                    Branches & Specializations
+                </h2>
+                <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&h=350&q=80" alt="Legal Specializations" class="law-image">
+                
+                <div class="specialization-grid">
+                    <div class="specialization-card">
+                        <h4><i class="fas fa-building"></i> Corporate Law</h4>
+                        <p>Business transactions, mergers, acquisitions, corporate governance, and compliance matters. High demand in MNCs and law firms.</p>
+                    </div>
+                    <div class="specialization-card">
+                        <h4><i class="fas fa-gavel"></i> Criminal Law</h4>
+                        <p>Criminal defense, prosecution, investigation procedures, and criminal justice system. Court practice and government positions.</p>
+                    </div>
+                    <div class="specialization-card">
+                        <h4><i class="fas fa-heart"></i> Family Law</h4>
+                        <p>Marriage, divorce, child custody, adoption, domestic violence, and family disputes. Growing field with social impact.</p>
+                    </div>
+                    <div class="specialization-card">
+                        <h4><i class="fas fa-globe"></i> International Law</h4>
+                        <p>Treaties, diplomatic relations, international trade, and cross-border legal issues. Global opportunities and high packages.</p>
+                    </div>
+                    <div class="specialization-card">
+                        <h4><i class="fas fa-leaf"></i> Environmental Law</h4>
+                        <p>Environmental protection, pollution control, climate change, and sustainable development. Emerging field with future scope.</p>
+                    </div>
+                    <div class="specialization-card">
+                        <h4><i class="fas fa-landmark"></i> Constitutional Law</h4>
+                        <p>Constitutional interpretation, fundamental rights, government powers, and judicial review. Academic and judicial careers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eligibility & Entrance Exams -->
+            <div class="section-card">
+                <h2 class="section-title">
+                    <div class="section-icon"><i class="fas fa-clipboard-check"></i></div>
+                    Eligibility & Entrance Exams
+                </h2>
+                
+                <div class="highlight-box">
+                    <h3>📋 Eligibility Criteria</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 0.5rem 0; position: relative; padding-left: 2rem;">
+                            <span style="position: absolute; left: 0; color: #ffd700; font-weight: bold;">✓</span>
+                            <strong>3-Year LLB:</strong> Graduation in any discipline with minimum 45-50% marks
+                        </li>
+                        <li style="padding: 0.5rem 0; position: relative; padding-left: 2rem;">
+                            <span style="position: absolute; left: 0; color: #ffd700; font-weight: bold;">✓</span>
+                            <strong>5-Year Integrated LLB:</strong> 12th pass with minimum 45-50% marks
+                        </li>
+                        <li style="padding: 0.5rem 0; position: relative; padding-left: 2rem;">
+                            <span style="position: absolute; left: 0; color: #ffd700; font-weight: bold;">✓</span>
+                            <strong>Age Limit:</strong> Generally 20-30 years (varies by institution)
+                        </li>
+                        <li style="padding: 0.5rem 0; position: relative; padding-left: 2rem;">
+                            <span style="position: absolute; left: 0; color: #ffd700; font-weight: bold;">✓</span>
+                            <strong>Reservation:</strong> Relaxation for SC/ST/OBC candidates as per government norms
+                        </li>
+                    </ul>
+                </div>
+
+                <h3 style="color: #2c3e50; margin: 2rem 0 1rem;">🎯 Major Entrance Exams</h3>
+                <div class="entrance-exam-grid">
+                    <div class="exam-card">
+                        <h4>CLAT</h4>
+                        <p>Common Law Admission Test for NLUs</p>
+                        <small>National Level • May 2025</small>
+                    </div>
+                    <div class="exam-card">
+                        <h4>AILET</h4>
+                        <p>All India Law Entrance Test (NLU Delhi)</p>
+                        <small>University Specific • May 2025</small>
+                    </div>
+                    <div class="exam-card">
+                        <h4>LSAT India</h4>
+                        <p>Law School Admission Test</p>
+                        <small>Multiple Universities • Multiple Times</small>
+                    </div>
+                    <div class="exam-card">
+                        <h4>DU LLB</h4>
+                        <p>Delhi University LLB Entrance</p>
+                        <small>University Specific • June 2025</small>
+                    </div>
+                    <div class="exam-card">
+                        <h4>BHU UET</h4>
+                        <p>Banaras Hindu University</p>
+                        <small>University Specific • May 2025</small>
+                    </div>
+                    <div class="exam-card">
+                        <h4>MH CET Law</h4>
+                        <p>Maharashtra Common Entrance Test</p>
+                        <small>State Level • May 2025</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Colleges -->
+            <div id="colleges" class="section-card">
+                <h2 class="section-title">
+                    <div class="section-icon"><i class="fas fa-university"></i></div>
+                    Top Colleges & Institutes
+                </h2>
+                <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&h=350&q=80" alt="Law College" class="law-image">
+                
+                <div class="college-list">
+                    <div class="college-card">
+                        <h4>🏆 National Law School (NLSIU), Bangalore</h4>
+                        <p>Rank: #1 | Fees: ₹2.75L/year</p>
+                        <small>5-Year BA LLB, 3-Year LLB | NIRF Rank: 1</small>
+                    </div>
+                    <div class="college-card">
+                        <h4>🥈 NALSAR, Hyderabad</h4>
+                        <p>Rank: #2 | Fees: ₹2.20L/year</p>
+                        <small>5-Year BA LLB, LLM | NIRF Rank: 2</small>
+                    </div>
+                    <div class="college-card">
+                        <h4>🥉 West Bengal NUJS, Kolkata</h4>
+                        <p>Rank: #3 | Fees: ₹1.87L/year</p>
+                        <small>5-Year BA LLB | NIRF Rank: 3</small>
+                    </div>
+                    <div class="college-card">
+                        <h4>🎓 NLU Delhi</h4>
+                        <p>Rank: #4 | Fees: ₹1.83L/year</p>
+                        <small>5-Year BA LLB | NIRF Rank: 4</small>
+                    </div>
+                    <div class="college-card">
+                        <h4>📚 Jamia Millia Islamia, Delhi</h4>
+                        <p>Rank: #5 | Fees: ₹45K/year</p>
+                        <small>5-Year BA LLB, 3-Year LLB | Central University</small>
+                    </div>
+                    <div class="college-card">
+                        <h4>🏛️ Faculty of Law, DU</h4>
+                        <p>Rank: #6 | Fees: ₹15K/year</p>
+                        <small>3-Year LLB | Most Affordable</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Duration & Structure -->
+            <div class="section-card">
+                <h2 class="section-title">
+                    <div class="section-icon"><i class="fas fa-calendar-alt"></i></div>
+                    Course Duration & Structure
+                </h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>3-Year LLB Program</h4>
+                            <p>For graduates from any discipline. Intensive focus on core legal subjects with practical training and internships.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>5-Year Integrated Program</h4>
+                            <p>BA LLB, BBA LLB, BSc LLB, BCom LLB - Perfect combination of undergraduate degree with comprehensive legal education.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Semester System</h4>
+                            <p>Most universities follow semester system with 6-10 semesters depending on the program duration and structure.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>📊 Typical Course Structure</h3>
+                    <div class="course-structure-grid">
+                        <div class="course-year year-1-2">
+                            <strong>Year 1-2</strong><br>
+                            <span style="font-size: 1.1rem;">Foundation Subjects</span><br>
+                            <small>Constitutional Law, Criminal Law, Torts, Contracts</small>
+                        </div>
+                        <div class="course-year year-3-4">
+                            <strong>Year 3-4</strong><br>
+                            <span style="font-size: 1.1rem;">Core Subjects</span><br>
+                            <small>Civil Procedure, Evidence, Property Law, Family Law</small>
+                        </div>
+                        <div class="course-year year-5">
+                            <strong>Year 5</strong><br>
+                            <span style="font-size: 1.1rem;">Specialization</span><br>
+                            <small>Electives, Internships, Dissertation, Projects</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fees & Scholarships -->
+            <div class="section-card">
+                <h2 class="section-title">
+                    <div class="section-icon"><i class="fas fa-rupee-sign"></i></div>
+                    Fees & Scholarships
+                </h2>
+                
+                <div class="chart-container">
+                    <h3>💰 Fee Structure Comparison</h3>
+                    <div class="fee-chart">
+                        <div class="pie-chart-container">
+                            <div class="pie-chart">
+                                <div class="pie-chart-center">Fees</div>
+                            </div>
+                            <div class="pie-legend">
+                                <div class="legend-item">
+                                    <div class="legend-color government"></div>
+                                    <span><strong>Government:</strong> ₹15K-50K/year</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color private"></div>
+                                    <span><strong>Private:</strong> ₹1L-5L/year</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color nlu"></div>
+                                    <span><strong>NLUs:</strong> ₹2L-3L/year</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 style="color: #2c3e50; margin-bottom: 1.5rem;">🎓 Available Scholarships</h4>
+                            <ul style="list-style: none; padding-left: 0;">
+                                <li style="padding: 0.5rem 0; position: relative; padding-left: 2rem;">
+                                    <span style="position: absolute; left: 0; color: #27ae60; font-weight: bold;">🏆</span>
+                                    <strong>Merit-based:</strong> Top performers get 25-100% fee waiver
+                                </li>
+                                <li style="padding: 0.5rem 0; position: relative; padding-left: 2rem;">
+                                    <span style="position: absolute; left: 0; color: #3498db; font-weight: bold;">💝</span>
+                                    <strong>Need-based:</strong> Financial assistance for economically weaker sections
+                                </li>
+                                <li style="padding: 0.5rem 0; position: relative; padding-left: 2rem;">
+                                    <span style="position: absolute; left: 0; color: #f39c12; font-weight: bold;">🏛️</span>
+                                    <strong>Government Schemes:</strong> SC/ST/OBC scholarships up to ₹2L/year
+                                </li>
+                                <li style="padding: 0.5rem 0; position: relative; padding-left: 2rem;">
+                                    <span style="position: absolute; left: 0; color: #e74c3c; font-weight: bold;">🎯</span>
+                                    <strong>Private Scholarships:</strong> Various foundations and organizations
+                                </li>
+                                <li style="padding: 0.5rem 0; position: relative; padding-left: 2rem;">
+                                    <span style="position: absolute; left: 0; color: #9b59b6; font-weight: bold;">🏦</span>
+                                    <strong>Education Loans:</strong> Available at competitive interest rates 7-12%
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Required -->
+            <div class="section-card">
+                <h2 class="section-title">
+                    <div class="section-icon"><i class="fas fa-brain"></i></div>
+                    Skills Required
+                </h2>
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&h=350&q=80" alt="Legal Skills" class="law-image">
+                
+                <div class="skill-tags">
+                    <span class="skill-tag">🧠 Critical Thinking</span>
+                    <span class="skill-tag">🗣️ Communication Skills</span>
+                    <span class="skill-tag">🔍 Research & Analysis</span>
+                    <span class="skill-tag">🧩 Problem Solving</span>
+                    <span class="skill-tag">🤝 Negotiation</span>
+                    <span class="skill-tag">⏰ Time Management</span>
+                    <span class="skill-tag">⚖️ Ethics & Integrity</span>
+                    <span class="skill-tag">🎤 Public Speaking</span>
+                    <span class="skill-tag">✍️ Writing Skills</span>
+                    <span class="skill-tag">🔎 Attention to Detail</span>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>🎯 Essential Competencies</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 1.5rem;">
+                        <div>
+                            <h4><i class="fas fa-search"></i> Analytical Skills</h4>
+                            <p>Ability to examine complex legal issues, identify key facts, and apply relevant laws effectively in various situations.</p>
+                        </div>
+                        <div>
+                            <h4><i class="fas fa-comments"></i> Advocacy Skills</h4>
+                            <p>Persuasive communication, courtroom presentation, client counseling, and strong argumentative abilities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placements & Packages -->
+            <div class="section-card">
+                <h2 class="section-title">
+                    <div class="section-icon"><i class="fas fa-chart-line"></i></div>
+                    Placements & Packages
+                </h2>
+                
+                <div class="chart-container">
+                    <h3>📈 Salary Trends by Experience</h3>
+                    <div class="salary-progression">
+                        <div class="salary-range">
+                            <span><strong>👶 Fresher</strong></span>
+                            <span><strong>₹3-8 LPA</strong></span>
+                        </div>
+                        <div class="salary-range">
+                            <span><strong>👨‍💼 2-5 Years</strong></span>
+                            <span><strong>₹8-20 LPA</strong></span>
+                        </div>
+                        <div class="salary-range">
+                            <span><strong>👨‍⚖️ 5-10 Years</strong></span>
+                            <span><strong>₹20-50 LPA</strong></span>
+                        </div>
+                        <div class="salary-range">
+                            <span><strong>🏆 10+ Years</strong></span>
+                            <span><strong>₹50L+ PA</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="color: #2c3e50; margin: 2rem 0 1rem;">🏢 Top Recruiting Sectors</h3>
+                <div class="sectors-grid">
+                    <div class="sector-card corporate">
+                        <h4>🏢 Corporate Law Firms</h4>
+                        <p><strong>₹5-25 LPA</strong> starting packages</p>
+                        <small>Khaitan & Co, AZB Partners, Cyril Amarchand</small>
+                    </div>
+                    <div class="sector-card government-sector">
+                        <h4>🏛️ PSUs & Government</h4>
+                        <p><strong>₹4-12 LPA</strong> with job security</p>
+                        <small>Judicial Services, Legal Advisor, Public Prosecutor</small>
+                    </div>
+                    <div class="sector-card mnc">
+                        <h4>🌐 MNCs & Banks</h4>
+                        <p><strong>₹6-20 LPA</strong> in compliance roles</p>
+                        <small>HDFC, ICICI, Reliance, Tata Group</small>
+                    </div>
+                    <div class="sector-card independent">
+                        <h4>⚖️ Independent Practice</h4>
+                        <p><strong>Variable income</strong> based on cases</p>
+                        <small>₹50K-5L per case depending on expertise</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Career Options -->
+            <div id="careers" class="section-card">
+                <h2 class="section-title">
+                    <div class="section-icon"><i class="fas fa-briefcase"></i></div>
+                    Career Options after Graduation
+                </h2>
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&h=350&q=80" alt="Legal Career Options" class="law-image">
+                
+                <div class="career-options-grid">
+                    <div class="career-option">
+                        <h4><i class="fas fa-gavel"></i> Legal Practice</h4>
+                        <ul>
+                            <li>Advocate/Lawyer in High Court/Supreme Court</li>
+                            <li>Senior Counsel (after 10+ years experience)</li>
+                            <li>Legal Consultant for businesses</li>
+                            <li>Public Prosecutor in criminal cases</li>
+                        </ul>
+                    </div>
+                    <div class="career-option">
+                        <h4><i class="fas fa-building"></i> Corporate Sector</h4>
+                        <ul>
+                            <li>Legal Officer in MNCs and corporates</li>
+                            <li>Company Secretary (with CS qualification)</li>
+                            <li>Compliance Manager in banks/finance</li>
+                            <li>Legal Advisor for business transactions</li>
+                        </ul>
+                    </div>
+                    <div class="career-option">
+                        <h4><i class="fas fa-landmark"></i> Judiciary & Government</h4>
+                        <ul>
+                            <li>Civil Judge through judicial services</li>
+                            <li>Magistrate in lower courts</li>
+                            <li>Public Prosecutor in state/central govt</li>
+                            <li>Court Clerk and judicial administration</li>
+                        </ul>
+                    </div>
+                    <div class="career-option">
+                        <h4><i class="fas fa-globe"></i> Alternative Careers</h4>
+                        <ul>
+                            <li>Legal Journalist for newspapers/media</li>
+                            <li>Law Professor in colleges/universities</li>
+                            <li>Human Rights Activist with NGOs</li>
+                            <li>Legal Process Outsourcing (LPO) firms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pros & Cons -->
+            <div class="section-card">
+                <h2 class="section-title">
+                    <div class="section-icon"><i class="fas fa-balance-scale-right"></i></div>
+                    Pros & Cons
+                </h2>
+                
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4><i class="fas fa-thumbs-up"></i> Advantages</h4>
+                        <ul>
+                            <li>High social status and respect in society</li>
+                            <li>Excellent earning potential with experience</li>
+                            <li>Diverse career opportunities across sectors</li>
+                            <li>Intellectual stimulation and continuous learning</li>
+                            <li>Job security, especially in government sector</li>
+                            <li>Opportunity to serve justice and help people</li>
+                            <li>Flexible working hours in private practice</li>
+                            <li>Global opportunities in international law</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4><i class="fas fa-thumbs-down"></i> Challenges</h4>
+                        <ul>
+                            <li>Highly competitive field with many lawyers</li>
+                            <li>Long working hours, especially initially</li>
+                            <li>High stress and pressure in court cases</li>
+                            <li>Initial struggle in building client base</li>
+                            <li>Continuous study and legal updates required</li>
+                            <li>Dealing with difficult clients and cases</li>
+                            <li>Ethical dilemmas in certain situations</li>
+                            <li>Slow court procedures and delayed justice</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Future Scope -->
+            <div class="section-card">
+                <h2 class="section-title">
+                    <div class="section-icon"><i class="fas fa-rocket"></i></div>
+                    Future Scope & Emerging Areas
+                </h2>
+                
+                <div class="highlight-box">
+                    <h3>🚀 Emerging Legal Fields</h3>
+                    <div class="emerging-fields">
+                        <div class="emerging-field">
+                            <h4><i class="fas fa-robot"></i> Technology Law</h4>
+                            <p>AI regulations, data protection, cybersecurity, and digital rights. High growth potential with tech boom.</p>
+                        </div>
+                        <div class="emerging-field">
+                            <h4><i class="fas fa-leaf"></i> Environmental Law</h4>
+                            <p>Climate change litigation, sustainability compliance, and green energy law. Critical for future sustainability.</p>
+                        </div>
+                        <div class="emerging-field">
+                            <h4><i class="fas fa-heartbeat"></i> Healthcare Law</h4>
+                            <p>Medical negligence, pharmaceutical regulations, and healthcare policy. Growing with healthcare sector expansion.</p>
+                        </div>
+                        <div class="emerging-field">
+                            <h4><i class="fas fa-space-shuttle"></i> Space Law</h4>
+                            <p>Commercial space activities, satellite regulations, and space exploration rights. Futuristic and high-paying field.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 2rem; font-size: 1.05rem; line-height: 1.7; color: #2c3e50;"><strong>The legal profession is evolving rapidly</strong> with technological advancements. Future lawyers will need to understand artificial intelligence, blockchain technology, and digital platforms. International law is gaining importance with globalization, creating opportunities in cross-border transactions and international arbitration.</p>
+            </div>
+
+            <!-- Advice from Alumni -->
+            <div class="section-card">
+                <h2 class="section-title">
+                    <div class="section-icon"><i class="fas fa-quote-left"></i></div>
+                    Advice from Seniors & Alumni
+                </h2>
+                
+                <div class="advice-card">
+                    <h3><i class="fas fa-user-graduate"></i> Success Tips from Legal Professionals</h3>
+                    <div class="advice-grid">
+                        <div class="advice-item">
+                            <h4>"🗣️ Focus on Communication"</h4>
+                            <em>- Senior Advocate, Supreme Court</em>
+                            <p>"Master both written and oral communication. Your ability to articulate complex legal concepts clearly will determine your success in courtrooms and client meetings."</p>
+                        </div>
+                        <div class="advice-item">
+                            <h4>"🤝 Build Strong Networks"</h4>
+                            <em>- Corporate Lawyer, Mumbai</em>
+                            <p>"Relationships matter immensely in law. Connect with seniors, participate in moot courts, and maintain professional relationships throughout your career."</p>
+                        </div>
+                        <div class="advice-item">
+                            <h4>"🎯 Specialize Early"</h4>
+                            <em>- Partner, Law Firm</em>
+                            <p>"Don't try to be a generalist. Pick a specialization by your 3rd year and become an expert in that area for better career prospects and higher packages."</p>
+                        </div>
+                        <div class="advice-item">
+                            <h4>"💻 Embrace Technology"</h4>
+                            <em>- Legal Tech Expert</em>
+                            <p>"Learn legal technology tools and AI applications. Automation is changing the legal landscape. Stay updated with digital trends and legal software."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alternative Paths -->
+            <div class="section-card">
+                <h2 class="section-title">
+                    <div class="section-icon"><i class="fas fa-route"></i></div>
+                    Alternative Career Paths
+                </h2>
+                
+                <div class="alternative-paths">
+                    <div class="alternative-path academic-path">
+                        <h4><i class="fas fa-graduation-cap"></i> Academic Career</h4>
+                        <p>Pursue LLM, PhD, and become a law professor. Engage in legal research, publish academic papers, and shape future lawyers through education.</p>
+                        <strong>💼 Scope: Teaching (₹50K-2L/month), Research, Policy Making, Academic Writing</strong>
+                    </div>
+                    <div class="alternative-path journalism-path">
+                        <h4><i class="fas fa-pen"></i> Legal Journalism</h4>
+                        <p>Write for legal magazines, newspapers, and digital platforms. Cover court proceedings, analyze legal developments, and create legal content.</p>
+                        <strong>📰 Scope: Media (₹30K-1L/month), Publishing, Legal Blogging, Content Writing</strong>
+                    </div>
+                    <div class="alternative-path activism-path">
+                        <h4><i class="fas fa-users"></i> Legal Activism</h4>
+                        <p>Work with NGOs, human rights organizations, and social justice movements. Fight for underprivileged communities and social causes.</p>
+                        <strong>⚖️ Scope: Social Work, Policy Advocacy, Rights Protection, International NGOs</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="section-card">
+                <h2 class="section-title">
+                    <div class="section-icon"><i class="fas fa-star"></i></div>
+                    Conclusion & Motivation
+                </h2>
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&h=350&q=80" alt="Justice and Law" class="law-image">
+                
+                <div class="highlight-box">
+                    <h3><i class="fas fa-heart"></i> Your Journey in Law</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7;">A career in law is not just about earning money or gaining prestige—it's about making a difference in society. Every case you handle, every client you represent, and every judgment you help deliver contributes to justice and the rule of law in our democracy.</p>
+                    
+                    <p style="margin-top: 1.5rem; font-size: 1.05rem; line-height: 1.7;">The legal profession demands dedication, continuous learning, and ethical conduct. While the journey may be challenging with intense competition and long hours, the rewards—both personal and professional—are immense. You'll have the opportunity to protect rights, serve justice, and build a better society for future generations.</p>
+                </div>
+
+                <div class="conclusion-motivation">
+                    <h3>🎯 Ready to Begin Your Legal Journey?</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem;"><strong>Remember:</strong> <em>"The law is not a trade, not briefs, not merchandise, and so the law is not bought and sold. Law is to be understood as justice, fairness, and moral righteousness."</em></p>
+                    <p style="font-size: 1.05rem; color: #2c3e50;">✨ Start preparing for entrance exams today, develop your communication skills, and stay updated with current legal developments. Your dedication today will shape your successful legal career tomorrow! The legal profession needs passionate individuals like you who are committed to justice and serving society.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Career Explorer</span>
+                    </a>
+                    <p style="color: #94a3b8; margin-top: 1.5rem; line-height: 1.6;">Empowering students to make informed career decisions through comprehensive guidance and resources. Your success is our mission.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>🔗 Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#specializations">Specializations</a></li>
+                        <li><a href="#colleges">Top Colleges</a></li>
+                        <li><a href="#careers">Career Options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>📚 Resources</h4>
+                    <ul>
+                        <li><a href="#">Career Assessment</a></li>
+                        <li><a href="#">College Finder</a></li>
+                        <li><a href="#">Entrance Exam Prep</a></li>
+                        <li><a href="#">Scholarship Guide</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Career Explorer. All rights reserved. | Made with ❤️ for aspiring lawyers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Comprehensive JavaScript for enhanced functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎓⚖️ LLB Law Career Guide loaded successfully!');
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Advanced Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all section cards for animation
+            document.querySelectorAll('.section-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(card);
+            });
+
+            // Enhanced click animations for interactive cards
+            document.querySelectorAll('.specialization-card, .college-card, .exam-card, .skill-tag, .sector-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                });
+
+                // Add ripple effect
+                card.addEventListener('mousedown', function(e) {
+                    const ripple = document.createElement('span');
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s linear';
+                    ripple.style.left = (e.pageX - this.offsetLeft) + 'px';
+                    ripple.style.top = (e.pageY - this.offsetTop) + 'px';
+                    this.appendChild(ripple);
+
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Enhanced image loading with fade-in effect
+            document.querySelectorAll('.law-image').forEach(img => {
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 0.6s ease';
+                
+                img.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                    this.classList.add('fade-in');
+                });
+                
+                if (img.complete) {
+                    img.style.opacity = '1';
+                    img.classList.add('fade-in');
+                }
+            });
+
+            // Navbar enhancement on scroll
+            let lastScrollTop = 0;
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > 50) {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                    navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+                } else {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                    navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                }
+
+                // Hide/show navbar on scroll
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    navbar.style.transform = 'translateY(0)';
+                }
+                lastScrollTop = scrollTop;
+            });
+
+            // Enhanced stat card animations
+            document.querySelectorAll('.stat-card').forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.05)';
+                    this.style.zIndex = '10';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.zIndex = '1';
+                });
+            });
+
+            // Course year cards hover effect
+            document.querySelectorAll('.course-year').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.05)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Skill tags interaction
+            document.querySelectorAll('.skill-tag').forEach((tag, index) => {
+                tag.style.animationDelay = `${index * 0.05}s`;
+                
+                tag.addEventListener('click', function() {
+                    // Create a tooltip or info display
+                    console.log(`Clicked on skill: ${this.textContent}`);
+                });
+            });
+
+            // Timeline animation
+            document.querySelectorAll('.timeline-item').forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-50px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                item.style.transitionDelay = `${index * 0.2}s`;
+                
+                observer.observe(item);
+            });
+
+            // Salary range cards animation
+            document.querySelectorAll('.salary-range').forEach((range, index) => {
+                range.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            // Add dynamic year to footer
+            const currentYear = new Date().getFullYear();
+            const footerText = document.querySelector('.footer-bottom p');
+            if (footerText) {
+                footerText.innerHTML = footerText.innerHTML.replace('2025', currentYear);
+            }
+
+            // Preload critical images for better performance
+            const criticalImages = [
+                'https://images.unsplash.com/photo-1589829545856-d10d557cf95f',
+                'https://images.unsplash.com/photo-1589994965851-a8f479c573a9',
+                'https://images.unsplash.com/photo-1562774053-701939374585'
+            ];
+
+            criticalImages.forEach(src => {
+                const img = new Image();
+                img.src = src + '?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&h=350&q=80';
+            });
+
+            // Add keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    // Close any modals or overlays
+                    document.querySelectorAll('.modal, .overlay').forEach(element => {
+                        element.style.display = 'none';
+                    });
+                }
+            });
+
+            // Performance monitoring
+            window.addEventListener('load', function() {
+                const loadTime = performance.now();
+                console.log(`🚀 Page loaded in ${Math.round(loadTime)}ms`);
+            });
+
+            // Add CSS animation keyframes dynamically
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+                
+                @keyframes slideInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(50px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                
+                .animate-slide-up {
+                    animation: slideInUp 0.8s ease forwards;
+                }
+            `;
+            document.head.appendChild(style);
+
+            console.log('✨ All enhancements loaded successfully!');
+        });
+
+        // Utility functions
+        function showTooltip(element, message) {
+            const tooltip = document.createElement('div');
+            tooltip.className = 'tooltip';
+            tooltip.textContent = message;
+            tooltip.style.cssText = `
+                position: absolute;
+                background: #333;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 4px;
+                font-size: 12px;
+                white-space: nowrap;
+                z-index: 1000;
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            `;
+            document.body.appendChild(tooltip);
+            
+            const rect = element.getBoundingClientRect();
+            tooltip.style.left = rect.left + 'px';
+            tooltip.style.top = (rect.top - 40) + 'px';
+            
+            setTimeout(() => tooltip.style.opacity = '1', 10);
+            setTimeout(() => tooltip.remove(), 3000);
+        }
+
+        // Prevent context menu on images for protection
+        document.querySelectorAll('.law-image').forEach(img => {
+            img.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                showTooltip(this, 'Image protected');
+            });
+        });
+    </script>
+</body>
+</html>

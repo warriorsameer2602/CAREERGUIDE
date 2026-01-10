@@ -1,0 +1,470 @@
+<%- include('partials/header', { 
+    title: 'Career Timeline 2025 - CareerGuide', 
+    cssFile: 'timeline.css',
+    currentPage: 'timeline'
+}) %>
+
+<%- include('partials/navbar', { currentPage: 'timeline' }) %>
+
+<!-- Timeline Hero Section -->
+<section class="timeline-hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Your <span class="gradient-text">Career Timeline</span><br>
+                    Never Miss a Deadline Again
+                </h1>
+                <p class="hero-description">
+                    Stay on track with comprehensive timelines for admissions, scholarships, exams, and career opportunities. 
+                    Personalized notifications ensure you're always prepared.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Important Dates</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">Smart</span>
+                            <span class="stat-label">Notifications</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">Live</span>
+                            <span class="stat-label">Updates</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="timeline-preview">
+                    <div class="preview-card active">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>College Admissions</span>
+                        <div class="preview-date">Mar 2025</div>
+                    </div>
+                    <div class="preview-card">
+                        <i class="fas fa-trophy"></i>
+                        <span>Scholarship Deadlines</span>
+                        <div class="preview-date">Sep 2025</div>
+                    </div>
+                    <div class="preview-card">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Government Exams</span>
+                        <div class="preview-date">Ongoing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Controls -->
+<section class="timeline-controls">
+    <div class="container">
+        <div class="controls-header">
+            <h2>Personalize Your Timeline</h2>
+            <p>Filter and customize based on your career interests</p>
+        </div>
+        
+        <div class="filter-bar">
+            <div class="filter-group">
+                <label class="filter-label">Category:</label>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-list"></i> All Events
+                    </button>
+                    <button class="filter-btn" data-filter="admissions">
+                        <i class="fas fa-university"></i> Admissions
+                    </button>
+                    <button class="filter-btn" data-filter="scholarships">
+                        <i class="fas fa-scholarship"></i> Scholarships
+                    </button>
+                    <button class="filter-btn" data-filter="exams">
+                        <i class="fas fa-file-alt"></i> Entrance Exams
+                    </button>
+                    <button class="filter-btn" data-filter="government">
+                        <i class="fas fa-landmark"></i> Govt Jobs
+                    </button>
+                    <button class="filter-btn" data-filter="professional">
+                        <i class="fas fa-briefcase"></i> Professional
+                    </button>
+                    <button class="filter-btn" data-filter="women">
+                        <i class="fas fa-female"></i> Women Focus
+                    </button>
+                </div>
+            </div>
+            
+            <div class="search-group">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="timelineSearch" placeholder="Search exams, colleges, deadlines...">
+                </div>
+                <button class="notification-btn" id="notificationToggle">
+                    <i class="fas fa-bell"></i>
+                    <span>Set Alerts</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Timeline -->
+<section class="interactive-timeline">
+    <div class="container">
+        <div class="timeline-container">
+            <div class="timeline-header">
+                <h3>Career Timeline 2025-2026</h3>
+                <div class="timeline-navigation">
+                    <button class="nav-btn" id="prevMonth">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <span class="current-period" id="currentPeriod">September 2025</span>
+                    <button class="nav-btn" id="nextMonth">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Timeline Visualization -->
+            <div class="timeline-vis" id="timelineVisualization">
+                <!-- September 2025 Events -->
+                <div class="timeline-month" data-month="2025-09">
+                    <div class="month-header">
+                        <h4>September 2025</h4>
+                        <span class="event-count">15 Important Events</span>
+                    </div>
+                    
+                    <!-- College Admission Events -->
+                    <div class="timeline-event admissions urgent" data-date="2025-09-15">
+                        <div class="event-marker">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-header">
+                                <h5>IGNOU Last Date for Admission</h5>
+                                <span class="event-date">September 15, 2025</span>
+                                <span class="event-badge urgent">Urgent</span>
+                            </div>
+                            <p class="event-description">
+                                Final deadline for IGNOU distance education programs. Multiple courses available including BBA, MCA, MBA.
+                            </p>
+                            <div class="event-actions">
+                                <a href="https://ignou.ac.in" target="_blank" class="btn-link">
+                                    <i class="fas fa-external-link-alt"></i> Apply Now
+                                </a>
+                                <button class="btn-reminder" data-event="ignou-admission">
+                                    <i class="fas fa-bell"></i> Set Reminder
+                                </button>
+                                <button class="btn-details" data-event="ignou-details">
+                                    <i class="fas fa-info-circle"></i> Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Scholarship Events -->
+                    <div class="timeline-event scholarships critical" data-date="2025-09-15">
+                        <div class="event-marker">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-header">
+                                <h5>National Scholarship Portal - Student Deadline</h5>
+                                <span class="event-date">September 15, 2025</span>
+                                <span class="event-badge critical">Critical</span>
+                            </div>
+                            <p class="event-description">
+                                Last date for students to apply for central government scholarships worth ₹75,000+ annually.
+                            </p>
+                            <div class="event-stats">
+                                <div class="stat">
+                                    <span class="stat-value">₹75,000+</span>
+                                    <span class="stat-label">Annual Scholarship</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">50 Lakh+</span>
+                                    <span class="stat-label">Beneficiaries</span>
+                                </div>
+                            </div>
+                            <div class="event-actions">
+                                <a href="https://scholarships.gov.in" target="_blank" class="btn-link">
+                                    <i class="fas fa-external-link-alt"></i> Apply on NSP
+                                </a>
+                                <button class="btn-video" data-video="nsp-guide">
+                                    <i class="fas fa-play"></i> How to Apply
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Government Exam Events -->
+                    <div class="timeline-event government ongoing" data-date="2025-09-12">
+                        <div class="event-marker">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-header">
+                                <h5>SSC CGL Tier-I Examination</h5>
+                                <span class="event-date">September 12-26, 2025</span>
+                                <span class="event-badge ongoing">Ongoing</span>
+                            </div>
+                            <p class="event-description">
+                                Combined Graduate Level examination for various Group B and C posts in Central Government.
+                            </p>
+                            <div class="salary-info">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>Salary: ₹25,500 - ₹81,100 per month</span>
+                            </div>
+                            <div class="event-actions">
+                                <a href="https://ssc.nic.in" target="_blank" class="btn-link">
+                                    <i class="fas fa-external-link-alt"></i> SSC Portal
+                                </a>
+                                <button class="btn-preparation" data-prep="ssc-cgl">
+                                    <i class="fas fa-book"></i> Preparation Tips
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Women Empowerment Focus -->
+                    <div class="timeline-event women special" data-date="2025-09-20">
+                        <div class="event-marker">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-header">
+                                <h5>Indian Air Force - Women Pilot Recruitment</h5>
+                                <span class="event-date">September 20, 2025</span>
+                                <span class="event-badge special">Women Focus</span>
+                            </div>
+                            <p class="event-description">
+                                Historic opportunity! Women can now apply as fighter pilots in Indian Air Force. Break barriers and soar high!
+                            </p>
+                            <div class="women-stats">
+                                <div class="highlight-stat">
+                                    <i class="fas fa-plane"></i>
+                                    <span>First time in history - Women Fighter Pilots allowed!</span>
+                                </div>
+                            </div>
+                            <div class="event-actions">
+                                <a href="https://indianairforce.nic.in" target="_blank" class="btn-link">
+                                    <i class="fas fa-external-link-alt"></i> Apply Now
+                                </a>
+                                <button class="btn-video" data-video="women-pilots">
+                                    <i class="fas fa-play"></i> Success Stories
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- October 2025 Events -->
+                <div class="timeline-month" data-month="2025-10">
+                    <div class="month-header">
+                        <h4>October 2025</h4>
+                        <span class="event-count">12 Important Events</span>
+                    </div>
+                    
+                    <!-- Add more events for October -->
+                    <div class="timeline-event professional important" data-date="2025-10-27">
+                        <div class="event-marker">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-header">
+                                <h5>SSC JE Paper-I (Junior Engineer)</h5>
+                                <span class="event-date">October 27-31, 2025</span>
+                                <span class="event-badge important">Important</span>
+                            </div>
+                            <p class="event-description">
+                                Junior Engineer recruitment for various technical posts in Central Government departments.
+                            </p>
+                            <div class="event-actions">
+                                <a href="https://ssc.nic.in" target="_blank" class="btn-link">
+                                    <i class="fas fa-external-link-alt"></i> Official Portal
+                                </a>
+                                <button class="btn-syllabus" data-syllabus="ssc-je">
+                                    <i class="fas fa-list"></i> Syllabus
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- November 2025 Events -->
+                <div class="timeline-month" data-month="2025-11">
+                    <div class="month-header">
+                        <h4>November 2025</h4>
+                        <span class="event-count">8 Important Events</span>
+                    </div>
+                    
+                    <div class="timeline-event exams critical" data-date="2025-11-30">
+                        <div class="event-marker">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-header">
+                                <h5>CAT 2025 - MBA Entrance Exam</h5>
+                                <span class="event-date">November 30, 2025</span>
+                                <span class="event-badge critical">Critical</span>
+                            </div>
+                            <p class="event-description">
+                                Common Admission Test for admission to IIMs and top B-schools across India.
+                            </p>
+                            <div class="event-stats">
+                                <div class="stat">
+                                    <span class="stat-value">20+</span>
+                                    <span class="stat-label">IIMs</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">₹25 LPA+</span>
+                                    <span class="stat-label">Average Package</span>
+                                </div>
+                            </div>
+                            <div class="event-actions">
+                                <a href="https://iimcat.ac.in" target="_blank" class="btn-link">
+                                    <i class="fas fa-external-link-alt"></i> Register for CAT
+                                </a>
+                                <button class="btn-video" data-video="cat-preparation">
+                                    <i class="fas fa-play"></i> Preparation Guide
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Video Modal for Embedded Content -->
+<div class="video-modal" id="videoModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 id="modalTitle">Career Guidance Video</h4>
+            <button class="close-btn" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="video-container" id="videoContainer">
+                <!-- YouTube videos will be embedded here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Notification Setup Panel -->
+<div class="notification-panel" id="notificationPanel">
+    <div class="panel-content">
+        <h4>Smart Notifications</h4>
+        <p>Get personalized reminders for important deadlines</p>
+        
+        <div class="notification-options">
+            <div class="option-group">
+                <label class="option-label">
+                    <input type="checkbox" id="emailNotifications" checked>
+                    <span class="checkmark"></span>
+                    Email Reminders
+                </label>
+                <small>Get detailed email reminders 7 days before deadlines</small>
+            </div>
+            
+            <div class="option-group">
+                <label class="option-label">
+                    <input type="checkbox" id="pushNotifications">
+                    <span class="checkmark"></span>
+                    Push Notifications
+                </label>
+                <small>Browser notifications for urgent deadlines</small>
+            </div>
+            
+            <div class="option-group">
+                <label class="option-label">
+                    <input type="checkbox" id="smsNotifications">
+                    <span class="checkmark"></span>
+                    SMS Alerts
+                </label>
+                <small>Text messages for critical deadlines</small>
+            </div>
+        </div>
+        
+        <div class="notification-timing">
+            <h5>Reminder Timing</h5>
+            <div class="timing-options">
+                <label><input type="checkbox" checked> 30 days before</label>
+                <label><input type="checkbox" checked> 15 days before</label>
+                <label><input type="checkbox" checked> 7 days before</label>
+                <label><input type="checkbox" checked> 1 day before</label>
+            </div>
+        </div>
+        
+        <div class="panel-actions">
+            <button class="btn-save" id="saveNotifications">Save Preferences</button>
+            <button class="btn-cancel" id="cancelNotifications">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats Section -->
+<section class="timeline-stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>500+</h3>
+                    <p>Important Dates Tracked</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>200+</h3>
+                    <p>College Admission Deadlines</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>₹1000 Cr+</h3>
+                    <p>Scholarship Opportunities</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>100+</h3>
+                    <p>Government Job Exams</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer', { jsFile: 'timeline.js' }) %>

@@ -1,0 +1,164 @@
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <h1 class="nav-logo">
+                <svg class="logo-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="#667eea" stroke-width="2"/>
+                    <path d="M12 6L8 18L12 15L16 18L12 6Z" fill="#667eea"/>
+                    <circle cx="12" cy="12" r="2" fill="#667eea"/>
+                    <path d="M12 2V6M12 18V22M22 12H18M6 12H2" stroke="#667eea" stroke-width="1"/>
+                </svg>
+                CareerGuide
+            </h1>
+        </div>
+        
+        <!-- Rest of your navigation stays the same -->
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="/" class="<%= currentPage === 'home' ? 'active' : '' %>">Home</a></li>
+            <li><a href="/career" class="<%= currentPage === 'career' ? 'active' : '' %>">Career</a></li>
+            <li><a href="/colleges" class="<%= currentPage === 'colleges' ? 'active' : '' %>">Colleges</a></li>
+            <li><a href="/timeline" class="<%= currentPage === 'timeline' ? 'active' : '' %>">Timeline</a></li>
+            <% if (user) { %>
+                <li><a href="/dashboard" class="<%= currentPage === 'dashboard' ? 'active' : '' %>">Dashboard</a></li>
+                <li><a href="/aiAssistant" class="<%= currentPage === 'aiAssistant' ? 'active' : '' %>">AI Assistant</a></li>
+            <% } %>
+        </ul>
+        
+        <div class="nav-auth">
+            <% if (user) { %>
+                <div class="user-menu">
+                    <span class="user-greeting">Hello, <%= user.profile.fullName.split(' ')[0] %>!</span>
+                    <a href="/logout" class="logout-btn">Logout</a>
+                </div>
+            <% } else { %>
+                <div class="auth-buttons">
+                    <a href="/login" class="login-btn">Login</a>
+                    <a href="/signup" class="signup-btn">Sign Up</a>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</nav>
+
+<style>
+.navbar {
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    gap: 20px;
+}
+
+.nav-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #667eea;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-icon {
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+}
+
+/* Rest of your styles remain the same */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #4a5568;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-greeting {
+    color: #4a5568;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.logout-btn {
+    background: #e53e3e;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #c53030;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.login-btn,
+.signup-btn {
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.login-btn {
+    color: #667eea;
+    border: 1px solid #667eea;
+}
+
+.login-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+.signup-btn {
+    background: #667eea;
+    color: white;
+}
+
+.signup-btn:hover {
+    background: #5a67d8;
+}
+</style>

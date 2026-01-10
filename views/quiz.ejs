@@ -1,0 +1,92 @@
+<%- include('partials/header', { 
+    title: title, 
+    cssFile: cssFile,
+    currentPage: currentPage
+}) %>
+
+<%- include('partials/navbar', { currentPage: currentPage }) %>
+
+<!-- Quiz Header -->
+<section class="quiz-header">
+    <div class="container">
+        <div class="quiz-header-content">
+            <h1 class="quiz-title">Career Assessment Quiz</h1>
+            <p class="quiz-subtitle">Complete all 60 questions to get your personalized career recommendation</p>
+        </div>
+    </div>
+</section>
+
+<!-- Quiz Progress Bar -->
+<section class="quiz-progress-section">
+    <div class="container">
+        <div class="progress-container">
+            <div class="progress-info">
+                <span class="progress-text">Question <span id="current-question">1</span> of <span id="total-questions">60</span></span>
+                <div class="timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="timer">00:00</span>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+            </div>
+            <div class="progress-percentage">
+                <span id="progress-percent">0%</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quiz Content -->
+<section class="quiz-content">
+    <div class="container">
+        <div class="question-container">
+            <!-- Question Header -->
+            <div class="question-header">
+                <div class="section-badge" id="section-badge">Loading...</div>
+                <div class="question-number">Question <span id="question-number">1</span></div>
+            </div>
+            
+            <!-- Question Text -->
+            <div class="question-text" id="question-text">
+                Loading your first question...
+            </div>
+            
+            <!-- Options Container -->
+            <div class="options-container" id="options-container">
+                <!-- Options will be populated by JavaScript -->
+            </div>
+            
+            <!-- Navigation Buttons -->
+            <div class="quiz-navigation">
+                <button class="btn btn-secondary" id="prev-btn" disabled>
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                
+                <div class="nav-center">
+                    <button class="btn btn-outline" id="save-progress">
+                        <i class="fas fa-save"></i> Save Progress
+                    </button>
+                </div>
+                
+                <button class="btn btn-primary" id="next-btn" disabled>
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <button class="btn btn-success" id="submit-btn" style="display: none;">
+                    Complete Assessment <i class="fas fa-check"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Loading Overlay -->
+<div class="loading-overlay" id="loading-overlay">
+    <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <p>Loading your assessment...</p>
+    </div>
+</div>
+
+<%- include('partials/footer', { jsFile: jsFile }) %>

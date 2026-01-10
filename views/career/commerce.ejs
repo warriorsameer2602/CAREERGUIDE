@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economics & Analytics - Career Explorer</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+    <style>
+        /* Page-specific styles */
+        .detail-page {
+            padding-top: 100px;
+            min-height: 10vh; /* Reduced for better initial view */
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .content-section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section-title {
+            color: #2d3748;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .section-icon {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 400px; /* Increased height for better chart visibility */
+            margin: 2rem 0;
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.05); /* Added for better visual depth */
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .specializations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .specialization-card {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .college-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .college-card {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .college-card:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .pros-cons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .pros, .cons {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .pros {
+            border-left: 4px solid #48bb78;
+        }
+        
+        .cons {
+            border-left: 4px solid #f56565;
+        }
+        
+        .career-path-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .path-step {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 150px;
+            flex: 1;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .arrow {
+            font-size: 1.5rem;
+            color: #667eea;
+        }
+        
+        .quote-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .quote-card::before {
+            content: '"';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.1;
+            top: -1rem;
+            left: 1rem;
+        }
+        
+        /* Navbar specific styles for the logo */
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem; /* Adjusted for better visibility */
+            font-weight: 700;
+            color: #667eea; /* Color from your image */
+            text-decoration: none;
+            text-transform: capitalize; /* Ensure 'CareerGuide' appears as in the image */
+            font-family: 'Poppins', sans-serif; /* Use Poppins for consistency */
+        }
+
+        .nav-logo i {
+            color: #667eea; /* Matching icon color to text */
+            margin-right: 8px; /* Space between icon and text */
+            font-size: 2rem; /* Adjusted icon size */
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .pros-cons-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .career-path-flow {
+                flex-direction: column;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            .chart-container {
+                height: 300px; /* Adjust chart height for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">
+                <i class="fas fa-compass"></i> CareerGuide
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../../index.html" class="nav-link">Home</a></li>
+                <li><a href="../commerce.html" class="nav-link">Back to Commerce</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Economics & Analytics</h1>
+            <p class="page-subtitle">Decode economic patterns, analyze market trends, and shape financial decisions through data-driven insights</p>
+        </div>
+    </section>
+
+    <div class="container detail-page">
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-chart-line"></i></div>
+                Introduction
+            </h2>
+            <p>Economics and Analytics is an interdisciplinary field that combines economic theory with statistical analysis and data science techniques. Students learn to understand market behaviors, forecast economic trends, and provide data-driven insights for business and policy decisions.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">4-6</span>
+                    <span class="stat-label">Years Duration</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">₹8-25L</span>
+                    <span class="stat-label">Average Package</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">92%</span>
+                    <span class="stat-label">Employment Rate</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Top Companies</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-sitemap"></i></div>
+                Branches & Specializations
+            </h2>
+            
+            <div class="chart-container">
+                <canvas id="specializationChart"></canvas>
+            </div>
+            
+            <div class="specializations-grid">
+                <div class="specialization-card">
+                    <h4><i class="fas fa-chart-bar"></i> Business Analytics</h4>
+                    <p>Focus on business data analysis, market research, and strategic decision-making using statistical tools.</p>
+                </div>
+                <div class="specialization-card">
+                    <h4><i class="fas fa-coins"></i> Financial Economics</h4>
+                    <p>Study financial markets, investment analysis, risk management, and monetary policy.</p>
+                </div>
+                <div class="specialization-card">
+                    <h4><i class="fas fa-database"></i> Data Economics</h4>
+                    <p>Combine economic theory with big data analytics, machine learning, and predictive modeling.</p>
+                </div>
+                <div class="specialization-card">
+                    <h4><i class="fas fa-globe"></i> International Economics</h4>
+                    <p>Focus on global trade, international finance, and cross-border economic relationships.</p>
+                </div>
+                <div class="specialization-card">
+                    <h4><i class="fas fa-building"></i> Development Economics</h4>
+                    <p>Study economic development, poverty analysis, and policy impact assessment.</p>
+                </div>
+                <div class="specialization-card">
+                    <h4><i class="fas fa-industry"></i> Industrial Economics</h4>
+                    <p>Analyze market structures, competition, and regulatory economics in various industries.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-clipboard-check"></i></div>
+                Eligibility & Entrance Exams
+            </h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
+                <div>
+                    <h4>Eligibility Criteria:</h4>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>10+2 with minimum 50-60% marks</li>
+                        <li>Mathematics as mandatory subject</li>
+                        <li>Statistics/Economics preferred</li>
+                        <li>English proficiency required</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Key Entrance Exams:</h4>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>CUET (Common University Entrance Test)</li>
+                        <li>JEE Main (for IITs offering Economics)</li>
+                        <li>IPU CET, SET, NPAT</li>
+                        <li>University-specific entrance tests</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="examChart"></canvas>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-university"></i></div>
+                Top Colleges & Institutes
+            </h2>
+            
+            <div class="college-grid">
+                <div class="college-card">
+                    <h4>Delhi School of Economics (DU)</h4>
+                    <p><strong>Fees:</strong> ₹15,000-25,000/year</p>
+                    <p><strong>Placement:</strong> ₹12-30 LPA</p>
+                    <p><strong>Ranking:</strong> #1 in Economics</p>
+                </div>
+                <div class="college-card">
+                    <h4>IIT Delhi - Economics</h4>
+                    <p><strong>Fees:</strong> ₹2-2.5 lakh/year</p>
+                    <p><strong>Placement:</strong> ₹15-40 LPA</p>
+                    <p><strong>Ranking:</strong> #2 Overall</p>
+                </div>
+                <div class="college-card">
+                    <h4>IIM Indore - IPM Economics</h4>
+                    <p><strong>Fees:</strong> ₹25-30 lakh (5 years)</p>
+                    <p><strong>Placement:</strong> ₹20-50 LPA</p>
+                    <p><strong>Ranking:</strong> #3 in Management</p>
+                </div>
+                <div class="college-card">
+                    <h4>ISI Kolkata - Statistics & Economics</h4>
+                    <p><strong>Fees:</strong> ₹8,000-15,000/year</p>
+                    <p><strong>Placement:</strong> ₹10-25 LPA</p>
+                    <p><strong>Ranking:</strong> #1 in Statistics</p>
+                </div>
+                <div class="college-card">
+                    <h4>Christ University, Bangalore</h4>
+                    <p><strong>Fees:</strong> ₹1.5-2 lakh/year</p>
+                    <p><strong>Placement:
+                        <p>₹8-20 LPA</p>
+                    <p><strong>Ranking:</strong> #10 Private</p>
+                </div>
+                <div class="college-card">
+                    <h4>Symbiosis School of Economics</h4>
+                    <p><strong>Fees:</strong> ₹3-4 lakh/year</p>
+                    <p><strong>Placement:</strong> ₹6-18 LPA</p>
+                    <p><strong>Ranking:</strong> #15 Private</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-calendar-alt"></i></div>
+                Course Duration & Structure
+            </h2>
+            
+            <div class="career-path-flow">
+                <div class="path-step">
+                    <h4>Bachelor's</h4>
+                    <p>3-4 Years</p>
+                    <small>B.A./B.Sc. Economics</small>
+                </div>
+                <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="path-step">
+                    <h4>Master's</h4>
+                    <p>2 Years</p>
+                    <small>M.A./M.Sc. Economics</small>
+                </div>
+                <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="path-step">
+                    <h4>Specialization</h4>
+                    <p>1-2 Years</p>
+                    <small>MBA/Analytics</small>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="durationChart"></canvas>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-book-open"></i></div>
+                Academic Curriculum & Subjects
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px;">
+                    <h4>Year 1: Foundation</h4>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Principles of Economics</li>
+                        <li>Statistics & Probability</li>
+                        <li>Mathematics for Economics</li>
+                        <li>Introduction to Analytics</li>
+                    </ul>
+                </div>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px;">
+                    <h4>Year 2: Core Concepts</h4>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Microeconomics</li>
+                        <li>Macroeconomics</li>
+                        <li>Econometrics</li>
+                        <li>Data Analysis Tools</li>
+                    </ul>
+                </div>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px;">
+                    <h4>Year 3: Specialization</h4>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Financial Economics</li>
+                        <li>Business Analytics</li>
+                        <li>Research Methodology</li>
+                        <li>Policy Analysis</li>
+                    </ul>
+                </div>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px;">
+                    <h4>Year 4: Advanced Topics</h4>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Advanced Econometrics</li>
+                        <li>Machine Learning</li>
+                        <li>Project Work</li>
+                        <li>Internship</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-cogs"></i></div>
+                Skills Required
+            </h2>
+            
+            <div class="chart-container">
+                <canvas id="skillsChart"></canvas>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+                <div style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 1rem; border-radius: 10px; text-align: center;">
+                    <i class="fas fa-calculator" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                    <h4>Analytical Thinking</h4>
+                </div>
+                <div style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 1rem; border-radius: 10px; text-align: center;">
+                    <i class="fas fa-chart-pie" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                    <h4>Data Interpretation</h4>
+                </div>
+                <div style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 1rem; border-radius: 10px; text-align: center;">
+                    <i class="fas fa-code" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                    <h4>Programming Skills</h4>
+                </div>
+                <div style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 1rem; border-radius: 10px; text-align: center;">
+                    <i class="fas fa-comments" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                    <h4>Communication</h4>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-handshake"></i></div>
+                Internships & Training
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h4><i class="fas fa-chart-line"></i> Summer Internships</h4>
+                    <p>2-3 month programs in consulting firms, banks, and research organizations</p>
+                    <strong>Stipend: ₹15,000-50,000/month</strong>
+                </div>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h4><i class="fas fa-university"></i> Research Projects</h4>
+                    <p>Work with professors on economic research and policy analysis</p>
+                    <strong>Duration: 6-12 months</strong>
+                </div>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h4><i class="fas fa-building"></i> Corporate Training</h4>
+                    <p>Analytics training programs in MNCs and financial institutions</p>
+                    <strong>Placement Rate: 70-85%</strong>
+                </div>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h4><i class="fas fa-laptop-code"></i> Online Certifications</h4>
+                    <p>Python, R, SQL, Tableau, and advanced analytics courses</p>
+                    <strong>Cost: ₹5,000-25,000</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-briefcase"></i></div>
+                Placements & Packages
+            </h2>
+            
+            <div class="chart-container">
+                <canvas id="salaryChart"></canvas>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">₹6L</span>
+                    <span class="stat-label">Average Starting</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">₹15L</span>
+                    <span class="stat-label">Mid-level (3-5 yrs)</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">₹25L+</span>
+                    <span class="stat-label">Senior Level</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">85%</span>
+                    <span class="stat-label">Placement Rate</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-road"></i></div>
+                Career Options after Graduation
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h4><i class="fas fa-chart-line"></i> Data Analyst</h4>
+                    <p>Analyze data trends and provide business insights</p>
+                    <strong>Salary: ₹4-12 LPA</strong>
+                </div>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h4><i class="fas fa-user-tie"></i> Economic Consultant</h4>
+                    <p>Provide expert economic advice to organizations</p>
+                    <strong>Salary: ₹8-20 LPA</strong>
+                </div>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h4><i class="fas fa-bank"></i> Financial Analyst</h4>
+                    <p>Analyze financial data and market trends</p>
+                    <strong>Salary: ₹6-18 LPA</strong>
+                </div>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h4><i class="fas fa-search-dollar"></i> Market Researcher</h4>
+                    <p>Study market conditions and consumer behavior</p>
+                    <strong>Salary: ₹5-15 LPA</strong>
+                </div>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h4><i class="fas fa-landmark"></i> Policy Analyst</h4>
+                    <p>Analyze and develop economic policies</p>
+                    <strong>Salary: ₹7-16 LPA</strong>
+                </div>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h4><i class="fas fa-graduation-cap"></i> Economics Professor</h4>
+                    <p>Teach and research in academic institutions</p>
+                    <strong>Salary: ₹6-25 LPA</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-building"></i></div>
+                Top Recruiters & Employers
+            </h2>
+            
+            <div class="chart-container">
+                <canvas id="recruitersChart"></canvas>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 2rem 0;">
+                <div style="background: #f8fafc; padding: 1rem; border-radius: 10px; text-align: center; border: 2px solid #e2e8f0;">
+                    <strong>McKinsey & Co.</strong>
+                </div>
+                <div style="background: #f8fafc; padding: 1rem; border-radius: 10px; text-align: center; border: 2px solid #e2e8f0;">
+                    <strong>Deloitte</strong>
+                </div>
+                <div style="background: #f8fafc; padding: 1rem; border-radius: 10px; text-align: center; border: 2px solid #e2e8f0;">
+                    <strong>EY</strong>
+                </div>
+                <div style="background: #f8fafc; padding: 1rem; border-radius: 10px; text-align: center; border: 2px solid #e2e8f0;">
+                    <strong>KPMG</strong>
+                </div>
+                <div style="background: #f8fafc; padding: 1rem; border-radius: 10px; text-align: center; border: 2px solid #e2e8f0;">
+                    <strong>Goldman Sachs</strong>
+                </div>
+                <div style="background: #f8fafc; padding: 1rem; border-radius: 10px; text-align: center; border: 2px solid #e2e8f0;">
+                    <strong>JP Morgan</strong>
+                </div>
+                <div style="background: #f8fafc; padding: 1rem; border-radius: 10px; text-align: center; border: 2px solid #e2e8f0;">
+                    <strong>RBI</strong>
+                </div>
+                <div style="background: #f8fafc; padding: 1rem; border-radius: 10px; text-align: center; border: 2px solid #e2e8f0;">
+                    <strong>NITI Aayog</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                Realities & Challenges
+            </h2>
+            
+            <div style="background: #fff5f5; border-left: 4px solid #f56565; padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                <h4 style="color: #c53030; margin-bottom: 1rem;">Common Challenges:</h4>
+                <ul style="padding-left: 1.5rem; color: #2d3748;">
+                    <li><strong>Mathematical Complexity:</strong> Advanced statistics and calculus required</li>
+                    <li><strong>Market Volatility:</strong> Economic predictions can be uncertain</li>
+                    <li><strong>Continuous Learning:</strong> Rapidly evolving analytical tools and methods</li>
+                    <li><strong>Work Pressure:</strong> Tight deadlines and high-stakes decisions</li>
+                    <li><strong>Competition:</strong> Need to stay updated with latest trends and technologies</li>
+                </ul>
+            </div>
+            
+            <div style="background: #f0fff4; border-left: 4px solid #48bb78; padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                <h4 style="color: #2f855a; margin-bottom: 1rem;">How to Overcome:</h4>
+                <ul style="padding-left: 1.5rem; color: #2d3748;">
+                    <li><strong>Strong Foundation:</strong> Build solid math and statistics base early</li>
+                    <li><strong>Practical Experience:</strong> Work on real-world projects and case studies</li>
+                    <li><strong>Networking:</strong> Connect with industry professionals and alumni</li>
+                    <li><strong>Certifications:</strong> Pursue relevant online courses and certifications</li>
+                    <li><strong>Mentorship:</strong> Seek guidance from experienced economists and analysts</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-balance-scale"></i></div>
+                Pros & Cons
+            </h2>
+            
+            <div class="pros-cons-grid">
+                <div class="pros">
+                    <h4 style="color: #48bb78; margin-bottom: 1rem;"><i class="fas fa-thumbs-up"></i> Advantages</h4>
+                    <ul style="padding-left: 1.5rem;">
+                        <li>High demand across industries</li>
+                        <li>Excellent career growth prospects</li>
+                        <li>Good starting salaries</li>
+                        <li>Diverse career opportunities</li>
+                        <li>Intellectual satisfaction</li>
+                        <li>Policy influence potential</li>
+                        <li>Global job opportunities</li>
+                        <li>Recession-proof career</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4 style="color: #f56565; margin-bottom: 1rem;"><i class="fas fa-thumbs-down"></i> Challenges</h4>
+                    <ul style="padding-left: 1.5rem;">
+                        <li>Requires strong mathematical skills</li>
+                        <li>Competitive job market</li>
+                        <li>Constant learning needed</li>
+                        <li>Work pressure in corporate roles</li>
+                        <li>Economic cycles affect demand</li>
+                        <li>Advanced degrees often required</li>
+                        <li>Long working hours initially</li>
+                        <li>High accuracy expectations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-crystal-ball"></i></div>
+                Future Scope
+            </h2>
+            
+            <div class="chart-container">
+                <canvas id="futureChart"></canvas>
+            </div>
+            
+            <p>The future of Economics & Analytics is extremely promising with the rise of:</p>
+            <ul style="margin: 1rem 0; padding-left: 2rem;">
+                <li><strong>Big Data Economics:</strong> Integration of massive datasets with economic modeling</li>
+                <li><strong>AI-driven Analysis:</strong> Machine learning applications in economic forecasting</li>
+                <li><strong>Behavioral Economics:</strong> Understanding psychological factors in economic decisions</li>
+                <li><strong>Sustainable Economics:</strong> Focus on environmental and social impact analysis</li>
+                <li><strong>Digital Economy:</strong> Analysis of cryptocurrency, e-commerce, and digital markets</li>
+                <li><strong>Fintech Integration:</strong> Economic analysis in financial technology sector</li>
+                <li><strong>Climate Economics:</strong> Economic impact of climate change and green policies</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-quote-left"></i></div>
+                Advice from Seniors & Alumni
+            </h2>
+            
+            <div class="quote-card">
+                <h4>Rajesh Kumar - Senior Data Scientist at McKinsey</h4>
+                <p style="font-style: italic; font-size: 1.1rem; margin: 1rem 0;">
+                    "Economics & Analytics opened doors to understanding both human behavior and market dynamics. Focus on building strong programming skills alongside economic theory. The combination of analytical thinking and technical skills is what makes you valuable in today's data-driven world."
+                </p>
+            </div>
+            
+            <div class="quote-card">
+                <h4>Priya Sharma - Economic Policy Advisor, Government of India</h4>
+                <p style="font-style: italic; font-size: 1.1rem; margin: 1rem 0;">
+                    "This field gives you the power to influence policy and create real social impact. Don't just focus on corporate roles - consider how your skills can contribute to solving India's economic challenges. Internships with government bodies and NGOs provide invaluable experience."
+                </p>
+            </div>
+            
+            <div class="quote-card">
+                <h4>Ankit Gupta - Investment Banker at Goldman Sachs</h4>
+                <p style="font-style: italic; font-size: 1.1rem; margin: 1rem 0;">
+                    "Start building your portfolio early with projects that showcase your analytical skills. Learn Python, R, and SQL - these are non-negotiable in today's market. Most importantly, develop strong communication skills to explain complex economic concepts to non-technical stakeholders."
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-route"></i></div>
+                Alternative Paths
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h4>After 12th Science</h4>
+                    <p>B.Sc. Economics → M.Sc. Economics → Specialization in Econometrics or Data Science</p>
+                </div>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h4>After 12th Commerce</h4>
+                    <p>B.A. Economics → MBA/M.A. Economics → Analytics Career in Business</p>
+                </div>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h4>Engineering Background</h4>
+                    <p>B.Tech → Economics PG → Quantitative Analyst in Finance</p>
+                </div>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h4>Working Professional</h4>
+                    <p>Part-time/Distance Economics → Career Switch to Analytics</p>
+                </div>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h4>Liberal Arts Graduate</h4>
+                    <p>Any Bachelor's → M.A. Economics → Research/Policy Career</p>
+                </div>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                    <h4>Non-Traditional Entry</h4>
+                    <p>Online Certifications → Portfolio Building → Entry-level Analyst Roles</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">
+                <div class="section-icon"><i class="fas fa-flag-checkered"></i></div>
+                Conclusion & Motivation
+            </h2>
+            
+            <div class="quote-card">
+                <h3 style="margin-bottom: 1rem;">Your Journey Starts Here! 🚀</h3>
+                <p style="font-size: 1.1rem; line-height: 1.6;">
+                    Economics & Analytics is more than just numbers and graphs - it's about understanding the world around us and making informed decisions that can impact millions of lives. Whether you dream of working on Wall Street, shaping government policies, or building the next breakthrough in data science, this field offers endless possibilities.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.6; margin-top: 1rem;">
+                    Remember, every economic challenge is an opportunity to innovate. Your analytical mind could be the key to solving unemployment, reducing poverty, or creating more efficient markets. The world needs economists who can think beyond traditional boundaries and embrace technology to create positive change.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.6; margin-top: 1rem;">
+                    India is experiencing unprecedented economic growth, and skilled economists and analysts are in high demand. From fintech startups to government think tanks, from multinational consulting firms to research institutions - opportunities are everywhere for those who are prepared.
+                </p>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <strong style="font-size: 1.3rem;">Start your journey today - the future of economics is in your hands! 💪</strong>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Mobile menu toggle (if hamburger exists)
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Chart configurations
+        Chart.defaults.font.family = 'Poppins, sans-serif';
+        Chart.defaults.color = '#2d3748';
+        
+        // Wait for DOM to load before creating charts
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Specialization Distribution Chart
+            const ctx1 = document.getElementById('specializationChart');
+            if (ctx1) {
+                new Chart(ctx1, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Business Analytics', 'Financial Economics', 'Data Economics', 'International Economics', 'Development Economics', 'Industrial Economics'],
+                        datasets: [{
+                            data: [25, 20, 20, 15, 12, 8],
+                            backgroundColor: [
+                                '#667eea',
+                                '#764ba2',
+                                '#f093fb',
+                                '#f5576c',
+                                '#4facfe',
+                                '#43e97b'
+                            ],
+                            borderWidth: 2,
+                            borderColor: '#ffffff'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Popular Specialization Areas (%)',
+                                font: { size: 16, weight: 'bold' }
+                            },
+                            legend: {
+                                position: 'bottom',
+                                labels: { padding: 20 }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Entrance Exam Weightage Chart
+            const ctx2 = document.getElementById('examChart');
+            if (ctx2) {
+                new Chart(ctx2, {
+                    type: 'bar',
+                    data: {
+                        labels: ['CUET', 'JEE Main', 'IPU CET', 'SET', 'NPAT', 'University Tests'],
+                        datasets: [{
+                            label: 'Colleges Accepting (%)',
+                            data: [75, 15, 25, 20, 15, 60],
+                            backgroundColor: 'rgba(102, 126, 234, 0.8)',
+                            borderColor: 'rgba(102, 126, 234, 1)',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Entrance Exam Acceptance by Colleges',
+                                font: { size: 16, weight: 'bold' }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 100
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Course Duration Chart
+            const ctx3 = document.getElementById('durationChart');
+            if (ctx3) {
+                new Chart(ctx3, {
+                    type: 'line',
+                    data: {
+                        labels: ['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Master\'s', 'Specialization'],
+                        datasets: [{
+                            label: 'Knowledge Progression Over Time (%)',
+                            data: [20, 40, 65, 80, 90, 95],
+                            borderColor: 'rgba(102, 126, 234, 1)',
+                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: 'rgba(102, 126, 234, 1)',
+                            pointBorderColor: '#ffffff',
+                            pointBorderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Knowledge Progression Over Time (%)',
+                                font: { size: 16, weight: 'bold' }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 100
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Skills Chart
+            const ctx4 = document.getElementById('skillsChart');
+            if (ctx4) {
+                new Chart(ctx4, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Math Skills', 'Data Analysis', 'Programming', 'Communication', 'Research', 'Critical Thinking'],
+                        datasets: [{
+                            label: 'Importance Level',
+                            data: [90, 95, 80, 85, 88, 92],
+                            backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                            borderColor: 'rgba(102, 126, 234, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(102, 126, 234, 1)',
+                            pointBorderColor: '#ffffff',
+                            pointBorderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Essential Skills for Success (%)',
+                                font: { size: 16, weight: 'bold' }
+                            }
+                        },
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                max: 100
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Salary Chart
+            const ctx5 = document.getElementById('salaryChart');
+            if (ctx5) {
+                new Chart(ctx5, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Fresher', '2-3 Years', '4-6 Years', '7-10 Years', '10+ Years'],
+                        datasets: [
+                            {
+                                label: 'Private Sector (LPA)',
+                                data: [6, 12, 18, 25, 35],
+                                backgroundColor: 'rgba(102, 126, 234, 0.8)',
+                                borderColor: 'rgba(102, 126, 234, 1)',
+                                borderWidth: 2
+                            },
+                            {
+                                label: 'Government Sector (LPA)',
+                                data: [5, 8, 12, 18, 25],
+                                backgroundColor: 'rgba(118, 75, 162, 0.8)',
+                                borderColor: 'rgba(118, 75, 162, 1)',
+                                borderWidth: 2
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Salary Progression by Experience',
+                                font: { size: 16, weight: 'bold' }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Recruiters Chart
+            const ctx6 = document.getElementById('recruitersChart');
+            if (ctx6) {
+                new Chart(ctx6, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Consulting', 'Banking & Finance', 'Government', 'Research Institutes', 'Tech Companies', 'Others'],
+                        datasets: [{
+                            data: [30, 25, 15, 12, 10, 8],
+                            backgroundColor: [
+                                '#667eea',
+                                '#764ba2',
+                                '#f093fb',
+                                '#f5576c',
+                                '#4facfe',
+                                '#43e97b'
+                            ],
+                            borderWidth: 2,
+                            borderColor: '#ffffff'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Employment Distribution by Sector (%)',
+                                font: { size: 16, weight: 'bold' }
+                            },
+                            legend: {
+                                position: 'bottom',
+                                labels: { padding: 20 }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Future Scope Chart
+            const ctx7 = document.getElementById('futureChart');
+            if (ctx7) {
+                new Chart(ctx7, {
+                    type: 'line',
+                    data: {
+                        labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'],
+                        datasets: [
+                            {
+                                label: 'Job Growth (%)',
+                                data: [5, 8, 12, 15, 18, 22, 25],
+                                borderColor: 'rgba(102, 126, 234, 1)',
+                                backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                                fill: true,
+                                tension: 0.4,
+                                pointBackgroundColor: 'rgba(102, 126, 234, 1)',
+                                pointBorderColor: '#ffffff',
+                                pointBorderWidth: 2
+                            },
+                            {
+                                label: 'AI Integration (%)',
+                                data: [10, 20, 35, 50, 65, 75, 85],
+                                borderColor: 'rgba(118, 75, 162, 1)',
+                                backgroundColor: 'rgba(118, 75, 162, 0.1)',
+                                fill: true,
+                                tension: 0.4,
+                                pointBackgroundColor: 'rgba(118, 75, 162, 1)',
+                                pointBorderColor: '#ffffff',
+                                pointBorderWidth: 2
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Future Growth Projections',
+                                font: { size: 16, weight: 'bold' }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 100
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+        // Intersection Observer for animations (fixed duplicate declaration)
+        const animationObserverOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const animationObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, animationObserverOptions);
+
+        // Apply animation to content sections
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease';
+            animationObserver.observe(section);
+        });
+    </script>
+</body>
+</html>

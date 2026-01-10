@@ -1,0 +1,268 @@
+/* Career Page Styles - FIXED */
+.career-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 8rem 0 4rem;
+    color: white;
+    text-align: center;
+}
+
+.career-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #ffd700, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.career-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.career-search {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.career-search-input {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-btn {
+    background: #ffd700;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    background: #ffed4a;
+    transform: translateY(-2px);
+}
+
+/* NEW CAREER CARDS STYLES - FIXED EXPANSION */
+.features {
+    padding: 4rem 0;
+    background: #f8fafc;
+}
+
+.career-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    align-items: start; /* FIXED: Prevent vertical alignment issues */
+}
+
+.career-main-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    align-self: start; /* FIXED: Each card stays at its own height */
+}
+
+.career-main-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.card-icon-large {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: white;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #2d3748;
+}
+
+.card-description {
+    color: #718096;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.expand-btn {
+    background: #667eea;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.expand-btn:hover {
+    background: #5a67d8;
+    transform: scale(1.05);
+}
+
+.expand-btn i {
+    transition: transform 0.3s ease;
+}
+
+/* FIXED: Individual card expansion */
+.career-main-card.expanded .expand-btn i {
+    transform: rotate(180deg);
+}
+
+/* FIXED: Each card's subcards expand independently */
+.career-subcards {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    background: #f7fafc;
+}
+
+/* FIXED: Only expanded cards show subcards */
+.career-main-card.expanded .career-subcards {
+    max-height: 2000px; /* Large enough for content */
+}
+
+.career-subcard {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.career-subcard:hover {
+    background: #edf2f7;
+    transform: translateX(5px);
+}
+
+.career-subcard:last-child {
+    border-bottom: none;
+}
+
+.subcard-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.subcard-content {
+    flex: 1;
+}
+
+.subcard-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2d3748;
+}
+
+.subcard-content p {
+    color: #718096;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.salary-tag {
+    background: #48bb78;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Section Header */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #718096;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .career-cards-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .career-hero {
+        padding: 6rem 0 3rem;
+    }
+    
+    .career-title {
+        font-size: 2.5rem;
+    }
+    
+    .career-search {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .search-btn {
+        padding: 1rem;
+    }
+    
+    .card-header {
+        padding: 1.5rem;
+    }
+    
+    .career-subcard {
+        padding: 1rem;
+    }
+}

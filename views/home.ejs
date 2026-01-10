@@ -1,0 +1,311 @@
+<%- include('partials/header', { 
+    title: 'CareerGuide - Your Career Compass', 
+    cssFile: 'home.css',
+    currentPage: 'home'
+}) %>
+
+<%- include('partials/navbar', { currentPage: 'home' }) %>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Your <span class="gradient-text">Career Journey</span><br>
+                    Starts Here
+                </h1>
+                <p class="hero-description">
+                    Discover the perfect academic path with AI-powered recommendations, 
+                    explore government colleges, and unlock your future potential.
+                </p>
+                <div class="hero-buttons">
+                    <% if (user) { %>
+                        <a href="/dashboard" class="btn-primary" id="startJourney">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Go to Dashboard
+                        </a>
+                    <% } else { %>
+                        <a href="/signup" class="btn-primary" id="startJourney">
+                            <i class="fas fa-rocket"></i>
+                            Start Your Journey
+                        </a>
+                    <% } %>
+                    <!-- Updated: Changed from /quiz to /aiAssistant -->
+                    <a href="/aiAssistant" class="btn-secondary ai-cta-btn" id="chatWithAI">
+                        <i class="fas fa-robot"></i>
+                        Chat with AI Guide
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="50000">0</span>
+                        <span class="stat-label">Students Guided</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="1200">0</span>
+                        <span class="stat-label">Colleges Listed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="95">0</span>
+                        <span class="stat-label">Success Rate %</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-cards">
+                    <div class="card card-1">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Engineering</span>
+                    </div>
+                    <div class="card card-2">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>Medical</span>
+                    </div>
+                    <div class="card card-3">
+                        <i class="fas fa-palette"></i>
+                        <span>Arts</span>
+                    </div>
+                    <div class="card card-4">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Commerce</span>
+                    </div>
+                    <div class="card card-5">
+                        <i class="fas fa-code"></i>
+                        <span>Technology</span>
+                    </div>
+                </div>
+                <div class="hero-illustration">
+                    <div class="illustration-circle"></div>
+                    <div class="student-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="features">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Powerful Features for Your Success</h2>
+            <p class="section-subtitle">Everything you need to make informed career decisions</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up" data-delay="100">
+                <div class="feature-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>AI Career Assistant</h3>
+                <p>Get instant, personalized career guidance from our AI counselor trained specifically for Indian students.</p>
+                <!-- Updated: Changed from Try Now to Ask AI Assistant -->
+                <a href="/aiAssistant" class="feature-btn ai-feature-btn">Ask AI Assistant</a>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-delay="200">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Aptitude Assessment</h3>
+                <p>Advanced algorithms analyze your interests, strengths, and personality to suggest perfect career paths.</p>
+                <a href="/quiz" class="feature-btn">Take Quiz</a>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-delay="300">
+                <div class="feature-icon">
+                    <i class="fas fa-route"></i>
+                </div>
+                <h3>Career Path Mapping</h3>
+                <p>Visual roadmaps showing exactly where each degree leads - from entrance to career opportunities.</p>
+                <a href="/career" class="feature-btn">Explore Paths</a>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-delay="400">
+                <div class="feature-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>College Finder</h3>
+                <p>Discover government colleges near you with detailed information on courses, fees, and facilities.</p>
+                <a href="/colleges" class="feature-btn">Find Colleges</a>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-delay="500">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h3>Timeline Tracker</h3>
+                <p>Never miss important dates! Get alerts for admissions, scholarships, and entrance exams.</p>
+                <a href="/timeline" class="feature-btn">Set Reminders</a>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-delay="600">
+                <div class="feature-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Scholarship Alerts</h3>
+                <p>Get notified about scholarships, grants, and financial aid opportunities you qualify for.</p>
+                <a href="/scholarship" class="feature-btn">View Scholarships</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Demo Section -->
+<section class="demo-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">See It In Action</h2>
+            <p class="section-subtitle">Experience our platform's key features</p>
+        </div>
+        
+        <div class="demo-container">
+            <div class="demo-tabs">
+                <button class="tab-btn active" data-tab="ai-chat">AI Assistant</button>
+                <button class="tab-btn" data-tab="quiz">Aptitude Quiz</button>
+                <button class="tab-btn" data-tab="colleges">College Search</button>
+            </div>
+            
+            <div class="demo-content">
+                <!-- Updated: New AI Chat Demo -->
+                <div class="tab-content active" id="ai-chat">
+                    <div class="ai-chat-demo">
+                        <h3>Chat with AI Career Counselor</h3>
+                        <div class="chat-preview">
+                            <div class="chat-message user-msg">
+                                <span>What career should I choose after 12th?</span>
+                            </div>
+                            <div class="chat-message ai-msg">
+                                <span>I'd be happy to help! What subjects do you enjoy most? Are you interested in...</span>
+                            </div>
+                        </div>
+                        <a href="/aiAssistant" class="demo-btn">Start Chatting</a>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="quiz">
+                    <div class="quiz-demo">
+                        <h3>Quick Aptitude Assessment</h3>
+                        <div class="question-card">
+                            <p>Which activity interests you most?</p>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="radio" name="demo-q1" value="creative">
+                                    <span>Creating art or designs</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="demo-q1" value="analytical">
+                                    <span>Solving mathematical problems</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="demo-q1" value="social">
+                                    <span>Helping others</span>
+                                </label>
+                            </div>
+                            <a href="/quiz" class="demo-btn">Take Full Quiz</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="colleges">
+                    <div class="college-demo">
+                        <h3>Find Colleges Near You</h3>
+                        <div class="search-demo">
+                            <input type="text" placeholder="Enter your location" class="location-input">
+                            <button class="search-btn">🔍 Search</button>
+                        </div>
+                        <div class="college-results">
+                            <div class="college-item">
+                                <h4>Government Engineering College</h4>
+                                <p>📍 2.5 km away • ⭐ 4.2 rating</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Success Stories Section -->
+<section class="success-stories">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Success Stories</h2>
+            <p class="section-subtitle">See how CareerGuide transformed student careers</p>
+        </div>
+        
+        <div class="stories-grid">
+            <div class="story-card">
+                <div class="story-avatar">
+                    <img src="/images/student1.jpg" alt="Priya Sharma" onerror="this.src='/images/default-avatar.png'">
+                </div>
+                <div class="story-content">
+                    <h4>Priya Sharma</h4>
+                    <p class="story-course">B.Tech CSE at NIT Patna</p>
+                    <p class="story-text">"CareerGuide's AI assistant helped me discover my passion for computer science. The guidance was spot-on!"</p>
+                    <div class="story-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">5.0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="story-card">
+                <div class="story-avatar">
+                    <img src="/images/student2.jpg" alt="Rahul Kumar" onerror="this.src='/images/default-avatar.png'">
+                </div>
+                <div class="story-content">
+                    <h4>Rahul Kumar</h4>
+                    <p class="story-course">MBBS at AIIMS Patna</p>
+                    <p class="story-text">"Found the perfect college and scholarship through CareerGuide. Now pursuing my dream career!"</p>
+                    <div class="story-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">5.0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="story-card">
+                <div class="story-avatar">
+                    <img src="/images/student3.jpg" alt="Anita Singh" onerror="this.src='/images/default-avatar.png'">
+                </div>
+                <div class="story-content">
+                    <h4>Anita Singh</h4>
+                    <p class="story-course">B.A Economics at DU</p>
+                    <p class="story-text">"The AI career counselor and timeline tracker saved me from missing important deadlines!"</p>
+                    <div class="story-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">5.0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Shape Your Future?</h2>
+            <p>Join thousands of students who found their perfect career path with CareerGuide</p>
+            <div class="cta-buttons">
+                <% if (user) { %>
+                    <a href="/dashboard" class="btn-primary large">Go to Dashboard</a>
+                    <a href="/aiAssistant" class="btn-ai-assistant large">Chat with AI</a>
+                <% } else { %>
+                    <a href="/signup" class="btn-primary large">Get Started Free</a>
+                    <a href="/aiAssistant" class="btn-ai-assistant large">Try AI Assistant</a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer', { jsFile: 'home.js' }) %>

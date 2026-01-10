@@ -1,0 +1,164 @@
+<%- include('partials/header', { 
+    title: 'Top Colleges - CareerGuide', 
+    cssFile: 'collegeFinder.css',
+    currentPage: 'colleges'
+}) %>
+
+<%- include('partials/navbar', { currentPage: 'colleges' }) %>
+
+<!-- Hero Section -->
+<section class="colleges-hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                India's <span class="gradient-text">Top Premier Colleges</span>
+            </h1>
+            <p class="hero-subtitle">
+                Explore the best NITs, IITs, IIITs, IIMs, and AIIMS across India
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">25</span>
+                    <span class="stat-label">Top Colleges</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Institution Types</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Government</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- College Categories -->
+<section class="college-categories">
+    <div class="container">
+        <div class="categories-header">
+            <h2>🏛️ Choose Your Path</h2>
+            <p>Select the type of institution that matches your career goals</p>
+        </div>
+        
+        <div class="categories-grid">
+            <div class="category-card active" data-type="all">
+                <div class="category-icon">🎓</div>
+                <h3>All Colleges</h3>
+                <p>View all top institutions</p>
+                <span class="category-count">25 Colleges</span>
+            </div>
+            
+            <div class="category-card" data-type="IIT">
+                <div class="category-icon">⚡</div>
+                <h3>IITs</h3>
+                <p>Indian Institutes of Technology</p>
+                <span class="category-count">5 Colleges</span>
+            </div>
+            
+            <div class="category-card" data-type="NIT">
+                <div class="category-icon">🔧</div>
+                <h3>NITs</h3>
+                <p>National Institutes of Technology</p>
+                <span class="category-count">5 Colleges</span>
+            </div>
+            
+            <div class="category-card" data-type="IIIT">
+                <div class="category-icon">💻</div>
+                <h3>IIITs</h3>
+                <p>Information Technology Institutes</p>
+                <span class="category-count">5 Colleges</span>
+            </div>
+            
+            <div class="category-card" data-type="IIM">
+                <div class="category-icon">📊</div>
+                <h3>IIMs</h3>
+                <p>Indian Institutes of Management</p>
+                <span class="category-count">5 Colleges</span>
+            </div>
+            
+            <div class="category-card" data-type="AIIMS">
+                <div class="category-icon">🏥</div>
+                <h3>AIIMS</h3>
+                <p>All India Institute of Medical Sciences</p>
+                <span class="category-count">5 Colleges</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Colleges List -->
+<section class="colleges-section">
+    <div class="container">
+        <div class="section-header">
+            <h3 id="resultsTitle">🏫 Top Premier Colleges in India</h3>
+            <div class="view-controls">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search colleges...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="sort-dropdown">
+                    <select id="sortSelect">
+                        <option value="rank">Sort by Rank</option>
+                        <option value="name">Sort by Name</option>
+                        <option value="type">Sort by Type</option>
+                        <option value="state">Sort by State</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="colleges-grid" id="collegesGrid">
+            <!-- Colleges will be populated by JavaScript -->
+            <div class="loading-container">
+                <div class="loading-spinner"></div>
+                <p>Loading top colleges...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Institution Info -->
+<section class="institution-info">
+    <div class="container">
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-icon">⚡</div>
+                <h4>IITs</h4>
+                <p>Premier engineering and technology institutes known for innovation and research excellence.</p>
+                <div class="info-highlight">Average Package: ₹25+ LPA</div>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-icon">🔧</div>
+                <h4>NITs</h4>
+                <p>National-level technical institutes offering quality engineering education across India.</p>
+                <div class="info-highlight">Average Package: ₹12+ LPA</div>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-icon">💻</div>
+                <h4>IIITs</h4>
+                <p>Specialized institutes focusing on Information Technology and Computer Science.</p>
+                <div class="info-highlight">Average Package: ₹18+ LPA</div>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-icon">📊</div>
+                <h4>IIMs</h4>
+                <p>Top business schools producing management leaders and entrepreneurs.</p>
+                <div class="info-highlight">Average Package: ₹30+ LPA</div>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-icon">🏥</div>
+                <h4>AIIMS</h4>
+                <p>Premier medical institutes providing world-class healthcare education and research.</p>
+                <div class="info-highlight">Medical Excellence Since 1956</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer', { jsFile: 'collegeFinder.js' }) %>

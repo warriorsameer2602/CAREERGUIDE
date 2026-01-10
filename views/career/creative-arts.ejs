@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Design - Career Explorer</title>
+    
+    <!-- Inline favicon to prevent 404 error -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #6366f1;
+            text-decoration: none;
+        }
+        
+        .nav-logo i {
+            font-size: 2rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: #6366f1;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #6366f1;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-fashion {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            padding: 100px 0 50px;
+            color: white;
+            text-align: center;
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-fashion::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a"><stop offset="0" stop-color="%23ffffff" stop-opacity=".1"/><stop offset="1" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><g opacity=".5"><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="80" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></g></svg>') center/cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-content {
+            padding: 60px 0;
+            background: #f8fafc;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-icon {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+        }
+
+        .card-header h2 {
+            color: #333;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .specialization-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .spec-card {
+            background: linear-gradient(45deg, #ffecd2, #fcb69f);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .spec-card:hover {
+            transform: scale(1.05) translateY(-5px);
+            border-color: #ff6b9d;
+            box-shadow: 0 10px 25px rgba(255, 107, 157, 0.2);
+        }
+
+        .spec-card h4 {
+            margin: 10px 0 5px 0;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .college-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .college-card {
+            background: white;
+            border: 2px solid #ff6b9d;
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .college-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .college-card:hover::before {
+            left: 100%;
+        }
+
+        .college-card:hover {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 157, 0.3);
+        }
+
+        .college-card h4 {
+            margin-bottom: 15px;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .chart-container h3 {
+            margin-bottom: 25px;
+            color: #333;
+            font-weight: 600;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 350px;
+            margin: 20px 0;
+        }
+
+        .pros-cons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .pros-card {
+            background: linear-gradient(45deg, #a8edea, #fed6e3);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(168, 237, 234, 0.3);
+        }
+
+        .cons-card {
+            background: linear-gradient(45deg, #ffecd2, #fcb69f);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(255, 236, 210, 0.3);
+        }
+
+        .pros-card h4, .cons-card h4 {
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        .pros-card ul, .cons-card ul {
+            list-style-position: inside;
+        }
+
+        .pros-card li, .cons-card li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .career-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .career-option {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .career-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .career-option h5 {
+            margin: 10px 0 5px 0;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #ff6b9d, #c44569);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 40px 0;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 55%;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            border: 2px solid rgba(255, 107, 157, 0.1);
+        }
+
+        .timeline-content h4 {
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transform: translateY(-50%);
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+            border: 3px solid white;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-icon {
+            right: -75px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-icon {
+            left: -75px;
+        }
+
+        .fee-structure {
+            background: linear-gradient(45deg, #a8edea, #fed6e3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(168, 237, 234, 0.3);
+        }
+
+        .fee-structure h4 {
+            margin-bottom: 25px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .skill-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #ff6b9d;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(255, 107, 157, 0.1);
+        }
+
+        .skill-item:hover {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 157, 0.3);
+        }
+
+        .skill-item i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover i {
+            transform: scale(1.1);
+        }
+
+        .motivational-quote {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+            font-style: italic;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .motivational-quote h3 {
+            margin-bottom: 25px;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #ffd700;
+            font-size: 1.2rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #6366f1;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: #1e293b;
+            border-radius: 50%;
+            color: #94a3b8;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background: #6366f1;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
+        }
+
+        /* Enhanced Responsive Design */
+        @media (max-width: 768px) {
+            .pros-cons-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: calc(100% - 70px);
+                left: 70px !important;
+                text-align: left;
+            }
+            
+            .timeline-item .timeline-icon {
+                left: -75px !important;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .chart-wrapper {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .card-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .content-card {
+                padding: 20px;
+            }
+        }
+
+        /* Additional utility classes */
+        .two-column-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .two-column-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .four-column-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .six-column-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .three-column-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .fee-box {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .fee-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .fee-amount {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .fee-green { color: #28a745; }
+        .fee-red { color: #dc3545; }
+        .fee-purple { color: #6f42c1; }
+
+        .subject-box {
+            padding: 25px;
+            border-radius: 15px;
+            margin: 10px 0;
+            transition: transform 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .subject-box:hover {
+            transform: translateY(-3px);
+        }
+
+        .bg-light-gray { background: #f8f9fa; }
+        .bg-light-blue { background: #e7f3ff; }
+        .bg-light-orange { background: #fff2e7; }
+        .bg-light-green { background: #f0fff0; }
+
+        .recruiter-box {
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .recruiter-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .bg-gradient-1 { background: linear-gradient(45deg, #667eea, #764ba2); }
+        .bg-gradient-2 { background: linear-gradient(45deg, #f093fb, #f5576c); }
+        .bg-gradient-3 { background: linear-gradient(45deg, #4facfe, #00f2fe); }
+        .bg-gradient-4 { background: linear-gradient(45deg, #43e97b, #38f9d7); }
+        .bg-gradient-5 { background: linear-gradient(45deg, #fa709a, #fee140); }
+        .bg-gradient-6 { background: linear-gradient(45deg, #a8edea, #fed6e3); color: #333; }
+
+        .future-box {
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .future-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .advice-box {
+            padding: 25px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .advice-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .alternative-box {
+            border: 2px solid;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .alternative-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .border-pink { border-color: #ff6b9d; }
+        .border-blue { border-color: #667eea; }
+        .border-green { border-color: #28a745; }
+        .border-yellow { border-color: #ffc107; }
+
+        /* Loading animation for charts */
+        .chart-loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            font-size: 1.2rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                Career Explorer
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../index.html#features" class="nav-link">Features</a></li>
+                <li><a href="../index.html#demo" class="nav-link">Demo</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-fashion">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <i class="fas fa-tshirt"></i> Fashion Design
+                </h1>
+                <p class="hero-description">
+                    Unleash your creativity and design the future of fashion. Explore the glamorous world of fashion design, from concept to runway.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section-content">
+        <div class="container">
+            <!-- Introduction -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h2>Introduction to Fashion Design</h2>
+                </div>
+                <p>Fashion Design is a creative field that combines art, technology, and business to create clothing, accessories, and lifestyle products. It involves conceptualizing designs, selecting fabrics, creating patterns, and overseeing the production process. Fashion designers shape trends, express cultural movements, and meet consumer needs while balancing creativity with commercial viability.</p>
+                <br>
+                <p>This field requires a blend of artistic vision, technical skills, and business acumen. Fashion designers work in various sectors including haute couture, ready-to-wear, accessories, footwear, and sustainable fashion.</p>
+            </div>
+
+            <!-- Branches/Specializations -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h2>Branches & Specializations</h2>
+                </div>
+                <div class="specialization-grid">
+                    <div class="spec-card">
+                        <i class="fas fa-crown" style="font-size: 2.5rem; margin-bottom: 15px; color: #ff6b9d;"></i>
+                        <h4>Haute Couture</h4>
+                        <p>High-end custom fashion for elite clientele</p>
+                    </div>
+                    <div class="spec-card">
+                        <i class="fas fa-tshirt" style="font-size: 2.5rem; margin-bottom: 15px; color: #ff6b9d;"></i>
+                        <h4>Ready-to-Wear</h4>
+                        <p>Mass market clothing production</p>
+                    </div>
+                    <div class="spec-card">
+                        <i class="fas fa-gem" style="font-size: 2.5rem; margin-bottom: 15px; color: #ff6b9d;"></i>
+                        <h4>Accessories Design</h4>
+                        <p>Bags, jewelry, belts, and fashion accessories</p>
+                    </div>
+                    <div class="spec-card">
+                        <i class="fas fa-leaf" style="font-size: 2.5rem; margin-bottom: 15px; color: #ff6b9d;"></i>
+                        <h4>Sustainable Fashion</h4>
+                        <p>Eco-friendly and ethical fashion solutions</p>
+                    </div>
+                    <div class="spec-card">
+                        <i class="fas fa-running" style="font-size: 2.5rem; margin-bottom: 15px; color: #ff6b9d;"></i>
+                        <h4>Footwear Design</h4>
+                        <p>Shoes, sneakers, and footwear innovation</p>
+                    </div>
+                    <div class="spec-card">
+                        <i class="fas fa-baby" style="font-size: 2.5rem; margin-bottom: 15px; color: #ff6b9d;"></i>
+                        <h4>Children's Wear</h4>
+                        <p>Specialized fashion for kids and infants</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eligibility & Entrance Exams -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h2>Eligibility & Entrance Exams</h2>
+                </div>
+                <div class="two-column-grid">
+                    <div>
+                        <h4><i class="fas fa-check-circle" style="color: #28a745;"></i> Eligibility Criteria</h4>
+                        <ul style="margin-top: 15px; line-height: 1.8;">
+                            <li>12th pass from any stream (preferably Arts/Commerce)</li>
+                            <li>Minimum 50% marks in 12th standard</li>
+                            <li>Portfolio submission showcasing creative work</li>
+                            <li>Creative aptitude and drawing skills test</li>
+                            <li>Age limit: 17-23 years for most institutes</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4><i class="fas fa-clipboard-list" style="color: #007bff;"></i> Major Entrance Exams</h4>
+                        <ul style="margin-top: 15px; line-height: 1.8;">
+                            <li>NIFT Entrance Exam (National Level)</li>
+                            <li>NID DAT (Design Aptitude Test)</li>
+                            <li>UCEED (IIT Design Entrance)</li>
+                            <li>AIEED (All India Entrance Exam for Design)</li>
+                            <li>FDDI AIST (Footwear Design)</li>
+                            <li>IIAD Entrance Test</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Colleges -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h2>Top Colleges & Institutes</h2>
+                </div>
+                <div class="college-grid">
+                    <div class="college-card">
+                        <h4>NIFT (National Institute of Fashion Technology)</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Multiple Campuses Across India</p>
+                        <p><i class="fas fa-star"></i> Government Institute - Premier Fashion Education</p>
+                    </div>
+                    <div class="college-card">
+                        <h4>NID (National Institute of Design)</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Ahmedabad, Bangalore, Bhopal</p>
+                        <p><i class="fas fa-star"></i> Premier Design Institute - Multidisciplinary</p>
+                    </div>
+                    <div class="college-card">
+                        <h4>Pearl Academy</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Delhi, Mumbai, Jaipur, Bangalore</p>
+                        <p><i class="fas fa-star"></i> Private Institute - Industry Connect</p>
+                    </div>
+                    <div class="college-card">
+                        <h4>IIAD (Indian Institute of Art & Design)</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> New Delhi</p>
+                        <p><i class="fas fa-star"></i> Art & Design Focus - Creative Excellence</p>
+                    </div>
+                    <div class="college-card">
+                        <h4>JD Institute of Fashion Technology</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Multiple Cities</p>
+                        <p><i class="fas fa-star"></i> Fashion Specialization - Industry Training</p>
+                    </div>
+                    <div class="college-card">
+                        <h4>Symbiosis Institute of Design</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Pune</p>
+                        <p><i class="fas fa-star"></i> University Affiliated - Comprehensive Programs</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Duration & Structure -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h2>Course Duration & Structure</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>Bachelor's Degree</h4>
+                            <p><strong>Duration:</strong> 4 years</p>
+                            <p>B.Des in Fashion Design, B.Sc Fashion Design, BFA Fashion Design</p>
+                        </div>
+                        <div class="timeline-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>Diploma Courses</h4>
+                            <p><strong>Duration:</strong> 1-3 years</p>
+                            <p>Fashion Design, Garment Manufacturing, Pattern Making</p>
+                        </div>
+                        <div class="timeline-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>Master's Degree</h4>
+                            <p><strong>Duration:</strong> 2 years</p>
+                            <p>M.Des Fashion Design, M.Sc Fashion Design, MFA</p>
+                        </div>
+                        <div class="timeline-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>Certificate Courses</h4>
+                            <p><strong>Duration:</strong> 3-12 months</p>
+                            <p>Specialized skills, Software training, Short-term programs</p>
+                        </div>
+                        <div class="timeline-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fees & Scholarships -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <h2>Fees & Scholarships</h2>
+                </div>
+                <div class="fee-structure">
+                    <h4><i class="fas fa-calculator"></i> Fee Structure</h4>
+                    <div class="three-column-grid" style="margin-top: 25px;">
+                        <div class="fee-box">
+                            <h5>Government Institutes</h5>
+                            <p class="fee-amount fee-green">₹50K - 2L</p>
+                            <small>Per year (NIFT, NID)</small>
+                        </div>
+                        <div class="fee-box">
+                            <h5>Private Institutes</h5>
+                            <p class="fee-amount fee-red">₹2L - 8L</p>
+                            <small>Per year (Pearl, IIAD)</small>
+                        </div>
+                        <div class="fee-box">
+                            <h5>Foreign Universities</h5>
+                            <p class="fee-amount fee-purple">₹15L - 50L</p>
+                            <small>Per year (International)</small>
+                        </div>
+                    </div>
+                    <h4 style="margin-top: 30px;"><i class="fas fa-hand-holding-usd"></i> Scholarship Options</h4>
+                    <ul style="margin-top: 15px; line-height: 1.8;">
+                        <li>Merit-based scholarships (up to 50% fee waiver)</li>
+                        <li>Need-based financial assistance programs</li>
+                        <li>State government scholarships for SC/ST/OBC</li>
+                        <li>Industry-sponsored scholarships from fashion houses</li>
+                        <li>International exchange program funding</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Life in College -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h2>Life in College/Training Period</h2>
+                </div>
+                <div class="two-column-grid">
+                    <div>
+                        <h4><i class="fas fa-lightbulb" style="color: #ffc107;"></i> Creative Environment</h4>
+                        <ul style="margin-top: 15px; line-height: 1.8;">
+                            <li>State-of-the-art design studios and workshops</li>
+                            <li>Annual fashion shows and exhibitions</li>
+                            <li>Regular industry expert lectures and seminars</li>
+                            <li>Collaborative projects with fashion brands</li>
+                            <li>Participation in national and international fashion weeks</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4><i class="fas fa-calendar-alt" style="color: #17a2b8;"></i> Activities & Events</h4>
+                        <ul style="margin-top: 15px; line-height: 1.8;">
+                            <li>Annual fashion shows and runway presentations</li>
+                            <li>Design competitions and contests</li>
+                            <li>Industry visits to fashion houses and factories</li>
+                            <li>Portfolio development workshops</li>
+                            <li>Trend forecasting and research projects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Curriculum -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h2>Academic Curriculum & Subjects</h2>
+                </div>
+                <div class="four-column-grid">
+                    <div class="subject-box bg-light-gray">
+                        <h5><i class="fas fa-pencil-ruler"></i> Design Fundamentals</h5>
+                        <ul style="margin-top: 15px; line-height: 1.6;">
+                            <li>Fashion Illustration & Sketching</li>
+                            <li>Color Theory & Application</li>
+                            <li>Design Principles & Elements</li>
+                            <li>Fashion History & Trends</li>
+                        </ul>
+                    </div>
+                    <div class="subject-box bg-light-blue">
+                        <h5><i class="fas fa-cut"></i> Technical Skills</h5>
+                        <ul style="margin-top: 15px; line-height: 1.6;">
+                            <li>Pattern Making & Grading</li>
+                            <li>Draping Techniques</li>
+                            <li>Garment Construction</li>
+                            <li>Textile Science & Technology</li>
+                        </ul>
+                    </div>
+                    <div class="subject-box bg-light-orange">
+                        <h5><i class="fas fa-laptop"></i> Digital Design</h5>
+                        <ul style="margin-top: 15px; line-height: 1.6;">
+                            <li>CAD Software (Illustrator, CorelDraw)</li>
+                            <li>3D Design & Virtual Fashion</li>
+                            <li>Digital Fashion Illustration</li>
+                            <li>Fashion Photography & Styling</li>
+                        </ul>
+                    </div>
+                    <div class="subject-box bg-light-green">
+                        <h5><i class="fas fa-chart-line"></i> Business Skills</h5>
+                        <ul style="margin-top: 15px; line-height: 1.6;">
+                            <li>Fashion Marketing & Branding</li>
+                            <li>Fashion Merchandising</li>
+                            <li>Brand Management</li>
+                            <li>Retail Management & E-commerce</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Required -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h2>Skills Required</h2>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fas fa-palette"></i>
+                        <p><strong>Creativity</strong></p>
+                        <small>Artistic vision & innovation</small>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-pencil-alt"></i>
+                        <p><strong>Drawing Skills</strong></p>
+                        <small>Sketching & illustration</small>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-eye"></i>
+                        <p><strong>Visual Sense</strong></p>
+                        <small>Color & proportion</small>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-hands"></i>
+                        <p><strong>Manual Dexterity</strong></p>
+                        <small>Sewing & construction</small>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-users"></i>
+                        <p><strong>Communication</strong></p>
+                        <small>Client interaction</small>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-clock"></i>
+                        <p><strong>Time Management</strong></p>
+                        <small>Meeting deadlines</small>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <p><strong>Innovation</strong></p>
+                        <small>Trend forecasting</small>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-chart-line"></i>
+                        <p><strong>Trend Analysis</strong></p>
+                        <small>Market understanding</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Internships & Training -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h2>Internships & Training</h2>
+                </div>
+                <div class="two-column-grid">
+                    <div>
+                        <h4><i class="fas fa-building" style="color: #007bff;"></i> Internship Opportunities</h4>
+                        <ul style="margin-top: 15px; line-height: 1.8;">
+                            <li>Fashion houses and design studios</li>
+                            <li>Retail brands and export houses</li>
+                            <li>Fashion magazines and media companies</li>
+                            <li>E-commerce fashion platforms</li>
+                            <li>Fashion startups and boutiques</li>
+                            <li>Costume design for films and theater</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4><i class="fas fa-tools" style="color: #28a745;"></i> Training Programs</h4>
+                        <ul style="margin-top: 15px; line-height: 1.8;">
+                            <li>Summer internships (2-3 months)</li>
+                            <li>Industry projects and live assignments</li>
+                            <li>Fashion week backstage experience</li>
+                            <li>Apprenticeships with renowned designers</li>
+                            <li>International exchange programs</li>
+                            <li>Skill development workshops</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Salary & Package Chart -->
+            <div class="chart-container">
+                <h3><i class="fas fa-chart-bar"></i> Average Salary Progression in Fashion Design</h3>
+                <div class="chart-wrapper">
+                    <canvas id="fashionSalaryChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Placements & Packages -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h2>Placements & Packages</h2>
+                </div>
+                <div class="two-column-grid">
+                    <div>
+                        <h4><i class="fas fa-chart-line" style="color: #28a745;"></i> Placement Statistics</h4>
+                        <ul style="margin-top: 15px; line-height: 1.8;">
+                            <li><strong>NIFT:</strong> 85-90% placement rate annually</li>
+                            <li><strong>NID:</strong> 95%+ placement rate with top companies</li>
+                            <li><strong>Pearl Academy:</strong> 80-85% placement success</li>
+                            <li><strong>Average Starting Salary:</strong> ₹3-6 LPA</li>
+                            <li><strong>Highest Package Offered:</strong> ₹15-20 LPA</li>
+                            <li><strong>Top Recruiters:</strong> Zara, H&M, Myntra, Sabyasachi</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4><i class="fas fa-money-bill-wave" style="color: #dc3545;"></i> Salary Breakdown by Experience</h4>
+                        <ul style="margin-top: 15px; line-height: 1.8;">
+                            <li><strong>Fresher (0-1 year):</strong> ₹2.5-5 LPA</li>
+                            <li><strong>Junior Designer (2-5 years):</strong> ₹5-10 LPA</li>
+                            <li><strong>Senior Designer (5-10 years):</strong> ₹10-18 LPA</li>
+                            <li><strong>Design Manager:</strong> ₹18-30 LPA</li>
+                            <li><strong>Design Director/Creative Head:</strong> ₹30+ LPA</li>
+                            <li><strong>Independent Designer:</strong> Variable earnings</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Career Options -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h2>Career Options after Graduation</h2>
+                </div>
+                <div class="career-options">
+                    <div class="career-option">
+                        <i class="fas fa-user-tie"></i>
+                        <h5>Fashion Designer</h5>
+                        <p>₹3-8L per annum</p>
+                        <small>Create original clothing designs</small>
+                    </div>
+                    <div class="career-option">
+                        <i class="fas fa-store"></i>
+                        <h5>Fashion Merchandiser</h5>
+                        <p>₹4-10L per annum</p>
+                        <small>Plan and promote fashion products</small>
+                    </div>
+                    <div class="career-option">
+                        <i class="fas fa-cut"></i>
+                        <h5>Pattern Maker</h5>
+                        <p>₹3-6L per annum</p>
+                        <small>Create templates for garments</small>
+                    </div>
+                    <div class="career-option">
+                        <i class="fas fa-camera"></i>
+                        <h5>Fashion Photographer</h5>
+                        <p>₹3-12L per annum</p>
+                        <small>Photograph fashion collections</small>
+                    </div>
+                    <div class="career-option">
+                        <i class="fas fa-palette"></i>
+                        <h5>Fashion Stylist</h5>
+                        <p>₹2-8L per annum</p>
+                        <small>Style for shoots and events</small>
+                    </div>
+                    <div class="career-option">
+                        <i class="fas fa-pen"></i>
+                        <h5>Fashion Journalist</h5>
+                        <p>₹3-7L per annum</p>
+                        <small>Write about fashion trends</small>
+                    </div>
+                    <div class="career-option">
+                        <i class="fas fa-chart-line"></i>
+                        <h5>Fashion Consultant</h5>
+                        <p>₹4-15L per annum</p>
+                        <small>Advise brands and individuals</small>
+                    </div>
+                    <div class="career-option">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h5>Fashion Educator</h5>
+                        <p>₹3-8L per annum</p>
+                        <small>Teach at design institutes</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Recruiters -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h2>Top Recruiters & Employers</h2>
+                </div>
+                <div class="six-column-grid">
+                    <div class="recruiter-box bg-gradient-1">
+                        <strong>Fashion Houses</strong>
+                        <p>Sabyasachi, Manish Malhotra, Rohit Bal, Tarun Tahiliani</p>
+                    </div>
+                    <div class="recruiter-box bg-gradient-2">
+                        <strong>International Brands</strong>
+                        <p>Zara, H&M, Uniqlo, Forever 21, Gap</p>
+                    </div>
+                    <div class="recruiter-box bg-gradient-3">
+                        <strong>Indian Brands</strong>
+                        <p>FabIndia, Biba, W, Aurelia, Global Desi</p>
+                    </div>
+                    <div class="recruiter-box bg-gradient-4">
+                        <strong>E-commerce Platforms</strong>
+                        <p>Myntra, Jabong, Amazon Fashion, Flipkart</p>
+                    </div>
+                    <div class="recruiter-box bg-gradient-5">
+                        <strong>Export Houses</strong>
+                        <p>Orient Craft, Gokaldas Exports, Shahi Exports</p>
+                    </div>
+                    <div class="recruiter-box bg-gradient-6">
+                        <strong>Media & Publications</strong>
+                        <p>Vogue, Elle, Harper's Bazaar, GQ, Cosmopolitan</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Market Distribution -->
+            <div class="chart-container">
+                <h3><i class="fas fa-chart-pie"></i> Job Market Distribution in Fashion Industry</h3>
+                <div class="chart-wrapper">
+                    <canvas id="fashionJobChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Realities & Challenges -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h2>Realities & Challenges</h2>
+                </div>
+                <div class="two-column-grid">
+                    <div>
+                        <h4><i class="fas fa-reality" style="color: #6f42c1;"></i> Industry Realities</h4>
+                        <ul style="margin-top: 15px; line-height: 1.8;">
+                            <li>Highly competitive market with many aspiring designers</li>
+                            <li>Seasonal nature of work with intense busy periods</li>
+                            <li>Need for continuous learning and trend adaptation</li>
+                            <li>Importance of networking and industry connections</li>
+                            <li>Balance between creativity and commercial viability</li>
+                            <li>Long working hours, especially during fashion weeks</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4><i class="fas fa-mountain" style="color: #e74c3c;"></i> Common Challenges</h4>
+                        <ul style="margin-top: 15px; line-height: 1.8;">
+                            <li>High initial investment for independent practice</li>
+                            <li>Pressure to constantly innovate and stay trendy</li>
+                            <li>Competition from fast fashion and international brands</li>
+                            <li>Managing client expectations and tight deadlines</li>
+                            <li>Irregular income patterns, especially early career</li>
+                            <li>Physical demands of the job and stress management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pros & Cons -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h2>Pros & Cons</h2>
+                </div>
+                <div class="pros-cons-grid">
+                    <div class="pros-card">
+                        <h4><i class="fas fa-thumbs-up" style="color: #28a745;"></i> Pros</h4>
+                        <ul>
+                            <li>Creative freedom and artistic self-expression</li>
+                            <li>Global career opportunities and travel</li>
+                            <li>Celebrity exposure and glamorous industry</li>
+                            <li>Entrepreneurship and business opportunities</li>
+                            <li>Trend-setting influence on society</li>
+                            <li>Diverse career paths within the industry</li>
+                            <li>International fashion weeks participation</li>
+                            <li>Brand collaborations and partnerships</li>
+                            <li>Recognition for creative achievements</li>
+                            <li>Potential for high earnings with success</li>
+                        </ul>
+                    </div>
+                    <div class="cons-card">
+                        <h4><i class="fas fa-thumbs-down" style="color: #dc3545;"></i> Cons</h4>
+                        <ul>
+                            <li>Highly competitive and saturated market</li>
+                            <li>Long and irregular working hours</li>
+                            <li>Irregular income, especially initially</li>
+                            <li>Seasonal work fluctuations and stress</li>
+                            <li>High pressure and tight deadlines</li>
+                            <li>Need for constant innovation and creativity</li>
+                            <li>Physical demands and health challenges</li>
+                            <li>Market trend dependency and uncertainty</li>
+                            <li>High initial investment requirements</li>
+                            <li>Job security concerns in early career</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Future Scope -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h2>Future Scope</h2>
+                </div>
+                <div class="four-column-grid">
+                    <div class="future-box bg-gradient-1">
+                        <h5><i class="fas fa-leaf"></i> Sustainable Fashion</h5>
+                        <p>Growing demand for eco-friendly, ethical fashion solutions and circular economy practices</p>
+                    </div>
+                    <div class="future-box bg-gradient-2">
+                        <h5><i class="fas fa-robot"></i> Tech Integration</h5>
+                        <p>AI-powered design tools, 3D fashion technology, and smart textiles innovation</p>
+                    </div>
+                    <div class="future-box bg-gradient-3">
+                        <h5><i class="fas fa-mobile-alt"></i> Digital Fashion</h5>
+                        <p>Virtual clothing, metaverse fashion, and digital wardrobe experiences</p>
+                    </div>
+                    <div class="future-box bg-gradient-4">
+                        <h5><i class="fas fa-user"></i> Personalization</h5>
+                        <p>Custom-fit clothing, personalized fashion experiences, and on-demand manufacturing</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Industry Growth Chart -->
+            <div class="chart-container">
+                <h3><i class="fas fa-chart-line"></i> Fashion Industry Growth Projection</h3>
+                <div class="chart-wrapper">
+                    <canvas id="fashionGrowthChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Advice from Alumni -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <h2>Advice from Seniors & Alumni</h2>
+                </div>
+                <div class="three-column-grid">
+                    <div class="advice-box" style="background: linear-gradient(45deg, #a8edea, #fed6e3);">
+                        <p><em>"Build a strong portfolio early in your career. It's your visual resume and the most important tool for landing jobs and showcasing your creative evolution."</em></p>
+                        <small><strong>- Priya Sharma, Senior Fashion Designer at Sabyasachi</strong></small>
+                    </div>
+                    <div class="advice-box" style="background: linear-gradient(45deg, #ffecd2, #fcb69f);">
+                        <p><em>"Stay updated with global trends but always add your unique touch. Originality and authentic creativity are what make you stand out in this crowded industry."</em></p>
+                        <small><strong>- Rahul Mishra, Independent Designer & LVMH Winner</strong></small>
+                    </div>
+                    <div class="advice-box" style="background: linear-gradient(45deg, #667eea, #764ba2); color: white;">
+                        <p><em>"Network actively during college and beyond. The fashion industry thrives on connections, collaborations, and relationships. Attend events and be visible."</em></p>
+                        <small><strong>- Anita Dongre, Fashion Entrepreneur & Sustainable Fashion Advocate</strong></small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alternative Paths -->
+            <div class="content-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h2>Alternative Career Paths</h2>
+                </div>
+                <div class="four-column-grid">
+                    <div class="alternative-box border-pink">
+                        <h5><i class="fas fa-store"></i> Fashion Retail Management</h5>
+                        <p>Store management, visual merchandising, buying, inventory planning</p>
+                    </div>
+                    <div class="alternative-box border-blue">
+                        <h5><i class="fas fa-paint-brush"></i> Costume Design</h5>
+                        <p>Film, theater, television costume design, character styling</p>
+                    </div>
+                    <div class="alternative-box border-green">
+                        <h5><i class="fas fa-laptop"></i> Fashion Tech</h5>
+                        <p>Fashion app development, e-commerce solutions, digital fashion</p>
+                    </div>
+                    <div class="alternative-box border-yellow">
+                        <h5><i class="fas fa-handshake"></i> Fashion PR & Marketing</h5>
+                        <p>Brand promotion, fashion events, influencer management, social media</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conclusion & Motivation -->
+            <div class="motivational-quote">
+                <h3><i class="fas fa-star"></i> Conclusion & Motivation</h3>
+                <p>"Fashion is not something that exists in dresses only. Fashion is in the sky, in the street, fashion has to do with ideas, the way we live, what is happening."</p>
+                <small>- Coco Chanel</small>
+                <br><br>
+                <p><strong>Your creativity is your superpower. Fashion design is more than just creating clothes – it's about expressing identity, culture, and innovation. With dedication, continuous learning, and passion, you can build a successful career in this dynamic and ever-evolving industry. Remember, every great designer started with a dream and a sketch. Your journey begins now! Embrace challenges, stay authentic, and let your creativity lead the way to a bright future in fashion.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        Career Explorer
+                    </div>
+                    <p>Empowering students to make informed career choices and achieve their dreams through comprehensive guidance and insights.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../pages/creative-arts.html">Creative Arts</a></li>
+                        <li><a href="../pages/arts.html">Arts & Literature</a></li>
+                        <li><a href="../index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Career Guidance</a></li>
+                        <li><a href="#">College Search</a></li>
+                        <li><a href="#">Scholarship Information</a></li>
+                        <li><a href="#">Industry Trends</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Career Explorer. All rights reserved. Made with ❤️ for aspiring fashion designers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Charts and Interactivity -->
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Initialize all charts after DOM is loaded
+            initializeCharts();
+            
+            // Initialize scroll animations
+            initializeScrollAnimations();
+        });
+
+        function initializeCharts() {
+            // 1. Salary Progression Chart
+            const salaryChart = document.getElementById('fashionSalaryChart');
+            if (salaryChart) {
+                new Chart(salaryChart.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['Fresher (0-1yr)', '2-3 Years', '5-7 Years', '8-10 Years', '10+ Years'],
+                        datasets: [{
+                            label: 'Average Salary (₹ Lakhs)',
+                            data: [3.5, 6, 10, 15, 22],
+                            borderColor: '#ff6b9d',
+                            backgroundColor: 'rgba(255, 107, 157, 0.1)',
+                            borderWidth: 4,
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: '#ff6b9d',
+                            pointBorderColor: '#c44569',
+                            pointRadius: 6,
+                            pointHoverRadius: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    usePointStyle: true,
+                                    font: {
+                                        size: 14,
+                                        weight: '500'
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Salary (₹ Lakhs)',
+                                    font: {
+                                        size: 14,
+                                        weight: '600'
+                                    }
+                                },
+                                grid: {
+                                    color: 'rgba(0,0,0,0.1)'
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Experience Level',
+                                    font: {
+                                        size: 14,
+                                        weight: '600'
+                                    }
+                                },
+                                grid: {
+                                    color: 'rgba(0,0,0,0.1)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 2. Job Market Distribution Chart
+            const jobChart = document.getElementById('fashionJobChart');
+            if (jobChart) {
+                new Chart(jobChart.getContext('2d'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Fashion Design', 'Retail & Merchandising', 'Styling & Consulting', 'Media & Photography', 'Manufacturing', 'Others'],
+                        datasets: [{
+                            data: [30, 25, 18, 12, 10, 5],
+                            backgroundColor: [
+                                '#ff6b9d',
+                                '#667eea',
+                                '#4facfe',
+                                '#43e97b',
+                                '#fa709a',
+                                '#ffd93d'
+                            ],
+                            borderWidth: 4,
+                            borderColor: '#fff',
+                            hoverOffset: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    padding: 20,
+                                    usePointStyle: true,
+                                    font: {
+                                        size: 12,
+                                        weight: '500'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 3. Industry Growth Projection Chart
+            const growthChart = document.getElementById('fashionGrowthChart');
+            if (growthChart) {
+                new Chart(growthChart.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['2023', '2024', '2025', '2026', '2027', '2028'],
+                        datasets: [{
+                            label: 'Market Size (₹ Crores)',
+                            data: [90000, 98000, 106000, 115000, 125000, 136000],
+                            backgroundColor: 'rgba(255, 107, 157, 0.8)',
+                            borderColor: '#ff6b9d',
+                            borderWidth: 2,
+                            borderRadius: 8,
+                            hoverBackgroundColor: '#c44569'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    font: {
+                                        size: 14,
+                                        weight: '500'
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Market Size (₹ Crores)',
+                                    font: {
+                                        size: 14,
+                                        weight: '600'
+                                    }
+                                },
+                                grid: {
+                                    color: 'rgba(0,0,0,0.1)'
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Year',
+                                    font: {
+                                        size: 14,
+                                        weight: '600'
+                                    }
+                                },
+                                grid: {
+                                    color: 'rgba(0,0,0,0.1)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        function initializeScrollAnimations() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Apply animation to cards
+            document.querySelectorAll('.content-card, .chart-container').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        }
+
+        // Error handling for charts
+        window.addEventListener('error', function(e) {
+            console.log('Chart loading error handled:', e.message);
+        });
+    </script>
+</body>
+</html>

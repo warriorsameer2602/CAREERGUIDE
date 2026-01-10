@@ -1,0 +1,69 @@
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-compass"></i>
+                    <span>CareerGuide</span>
+                </div>
+                <p>Empowering students to make informed career decisions and unlock their potential through technology and guidance.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/career">Career Paths</a></li>
+                    <li><a href="/colleges">Find Colleges</a></li>
+                    <li><a href="/scholarship">Scholarships</a></li>
+                    <li><a href="/quiz">Aptitude Quiz</a></li>
+                    <li><a href="/timeline">Timeline Tracker</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="/help">Help Center</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Stay Connected</h4>
+                <p>Get the latest updates on admissions, scholarships, and career guidance.</p>
+                <div class="newsletter-signup">
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <%= new Date().getFullYear() %> CareerGuide. All rights reserved. | SIH 2025 Project</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="/js/main.js"></script>
+
+<!-- Page-specific JavaScript -->
+<% if (typeof jsFile !== 'undefined') { %>
+    <script src="/js/<%= jsFile %>"></script>
+<% } %>
+
+<!-- Additional scripts -->
+<% if (typeof additionalScripts !== 'undefined') { %>
+    <%- additionalScripts %>
+<% } %>
+
+</body>
+</html>
